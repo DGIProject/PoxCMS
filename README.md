@@ -12,16 +12,16 @@ I decided to create this project because one of my friend just want a website to
 to do it. But the probleme arrive ! He don't know about how to program and how to modify his website. I asked him that a CMS
 is the solution of this problem.
 
-## How to Install :
+##How to Install :
 
-  1) first you nedd to clone this repo in a fully working php/mysql/apache server
-  2) Go to http://YourWebsite/PathOfTheCMS/installation to configure the cms with your database and to initialise your 
-     website with the base data.
-  3) When you have Finish this part you have to delete the installation directory. If this directory is active you wil have
-     errors.
-  4) When you have finish to delete this directory , go to http://YourWebsite/PathOfTheCMS/admin and you will have to enter
-     loggins that you registered just befor.
-  5) Edit and modify your website in admin's pages !
+* 1) first you nedd to clone this repo in a fully working php/mysql/apache server
+* 2) Go to http://YourWebsite/PathOfTheCMS/installation to configure the cms with your database and to initialise your 
+website with the base data.
+* 3) When you have Finish this part you have to delete the installation directory. If this directory is active you wil have
+errors.
+* 4) When you have finish to delete this directory , go to http://YourWebsite/PathOfTheCMS/admin and you will have to enter
+loggins that you registered just befor.
+* 5) Edit and modify your website in admin's pages !
 
 
 ## Licence :
