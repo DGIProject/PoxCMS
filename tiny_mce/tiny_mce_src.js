@@ -7170,7 +7170,7 @@ tinymce.dom.TreeWalker = function(start_node, root_node) {
 			var checkRng, startIndex = 0, endIndex, inside,
 				children, child, offset, index, position = -1, parent;
 
-			// Setup test range, collapse it and get the parent
+			// Setup .htaccess range, collapse it and get the parent
 			checkRng = rng.duplicate();
 			checkRng.collapse(start);
 			parent = checkRng.parentElement();
@@ -8299,7 +8299,7 @@ var Expr = Sizzle.selectors = {
 		text: function( elem ) {
 			var attr = elem.getAttribute( "type" ), type = elem.type;
 			// IE6 and 7 will map elem.type to 'text' for new HTML5 types (search, etc)
-			// use getAttribute instead to test this case
+			// use getAttribute instead to .htaccess this case
 			return elem.nodeName.toLowerCase() === "input" && "text" === type && ( attr === type || attr === null );
 		},
 
@@ -8892,7 +8892,7 @@ if ( document.querySelectorAll ) {
 		try {
 			// This should fail with an exception
 			// Gecko does not error, returns false instead
-			matches.call( document.documentElement, "[test!='']:sizzle" );
+			matches.call( document.documentElement, "[.htaccess!='']:sizzle" );
 
 		} catch( pseudoError ) {
 			pseudoWorks = true;
@@ -8926,7 +8926,7 @@ if ( document.querySelectorAll ) {
 (function(){
 	var div = document.createElement("div");
 
-	div.innerHTML = "<div class='test e'></div><div class='test'></div>";
+	div.innerHTML = "<div class='.htaccess e'></div><div class='.htaccess'></div>";
 
 	// Opera can't find a second classname (in 9.6)
 	// Also, make sure that getElementsByClassName actually exists
@@ -12638,7 +12638,7 @@ tinymce.create('tinymce.ui.ToolbarGroup:tinymce.ui.Container', {
 		var t = this, h = [], controls = t.controls, each = tinymce.each, settings = t.settings;
 
 		h.push('<div id="' + t.id + '" role="group" aria-labelledby="' + t.id + '_voice">');
-		//TODO: ACC test this out - adding a role = application for getting the landmarks working well.
+		//TODO: ACC .htaccess this out - adding a role = application for getting the landmarks working well.
 		h.push("<span role='application'>");
 		h.push('<span id="' + t.id + '_voice" class="mceVoiceLabel" style="display:none;">' + dom.encode(settings.name) + '</span>');
 		each(controls, function(toolbar) {

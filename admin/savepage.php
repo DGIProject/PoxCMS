@@ -7,7 +7,6 @@
  * To change this template use File | Settings | File Templates.
  */
 include ("function.php");
-session_start();
 if ($_SESSION['pseudo'] != NULL )
 {
 

@@ -13,7 +13,7 @@ if(!$_SESSION['pseudo'])
 {
     echo '<script type="text/javascript">window.location="index.php"</script>';
 }
-
+print_r($_POST);
 ?>
 <!DOCTYPE html>
 <html>
@@ -57,35 +57,46 @@ if(!$_SESSION['pseudo'])
                 staffid : "991234"
             }
         });
+        
+    </script>
+    <script type="text/javascript">
+    function showLine() {
+    
+    if ( document.getElementById('title').value != "")
+    {
+    document.getElementById('lines').style.display = '';
+    }	
+    else {
+    	alert('vous devez remplir le champ de titre');
+    }
+    }
+    function create_champ(i, returnDemand) {
+
+        var i2 = i + 1;
+
+            document.getElementById('lines'+i).innerHTML = 'Element '+i2+'<input type="text" name="element_'+i2+'"></span><br>';
+            document.getElementById('lines'+i).innerHTML += (i <= 10) ? '<br><span id="lines'+i2+'"><input type="button" value="Nouvelle line" name="ajout" onclick="create_champ('+i2+')"><input type="hidden" name="numbers" value="'+i2+'"><input type="submit" name="save" value="Sauvegarder le menu"></span>' : '';
+
+    }
     </script>
 </head>
 <body>
 <p>
-    Bienvenue dans la section consacrer au menu de votre site :<br>
-    Ici vous poureez ajouter des menu sur les cotés en haut , au vous voulez dans vos page !
-</p>
-<p>
-    tout dabbord veuillez selectionner un type de menu :
-    <ul>
-    <li><a href="add_menu.php?t=ligne">barre de navigation</a></li>
-    <li><a href="add_menu.php?t=cadre">Cadre sur le coté</a></li>
-    <li><a href="add_menu.php?t=onglet">En onglets</a></li>
-</ul>
-<?php
-if ($_GET['t'] == "ligne")
-{?>
+<br /><br />
+depuis cette page vous pouvez ajouter des menu a votre site web , en plus de pouvoir en ajouter vous pouvez les positionner et les modifier en fonction des template:
+<br />
+pour commencer il vous dait choisir un tire pour le menu, celui ci ne sera pas affiche lais servira de desvription. purement de repere dans la liste des menu si vous en avez plusieurs. 
 
-
-    <form action="add_menu.php" method="post">
-
-    </form>
-
-<?php }
-elseif ($_GET['t']=="cadre"){
-    echo "vous avez choisi le menu cadre ";
-}
-
-?>
-</p>
+<form method="post" action="save_menu.php">
+<label for="title">Titre ou courte description :</label><input id="title" type="text" name="title_post" value="" /><br>
+<label for="positi">postition dans la page</label><select name="posit" id="positi"><option>Haut</option><option>Droite</option><option>Gauche</option><option>Bas</option></select>
+<input type="button" name="next" value="suivant" onclick="showLine()" />
+<br />
+<div id="lines" style="display :none;">
+    <br>Entrer les diferents element de votre menu pour l'instant vous etes limité a 10 elements.<br>
+    Element 1 :<input type="text" name="element_1" value="" /><br>
+    <span id="lines1"><input type="button" value="Nouvelle line" name="ajout" onclick="create_champ(1)"><br></span>
+</div>
+</form>
 </body>
 </html>

@@ -9,9 +9,16 @@
 
 
 
-function bdd_conect()
+function bdd_conect($loc = NULL)
 {
-    $fp = fopen("../configs/sql/sql_config.conf","r+"); //lecture du fichier
+    if ($loc == "1")
+	{
+		$fp = fopen("configs/sql/sql_config.conf","r+");
+	}
+	else
+	{
+		$fp = fopen("../configs/sql/sql_config.conf","r+"); //lecture du fichier
+	}
     while (!feof($fp)) { //on parcourt toutes les lignes
         $page .= fgets($fp, 4096); // lecture du contenu de la ligne
     }

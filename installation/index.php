@@ -45,7 +45,7 @@ else
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Installation - GKwiCMS - <?php echo $etape; ?></title>
+    <title>Installation - PoxCMS - <?php echo $etape; ?></title>
     <meta charset="utf-8" />
     <script type="text/javascript" src="sql/ajax.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css" media="screen" />

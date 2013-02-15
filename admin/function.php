@@ -121,3 +121,27 @@ function del_page_bdd($md5)
         'link' => $md5
     ));
 }
+
+function def_home_page($page)
+{
+	$link= md5($page).'.html';
+	$bdd = bdd_conect();
+	$req = $bdd->prepare("UPDATE menu set homepage=0 where homepage=1");
+	$req->execute();
+	$req = $bdd->prepare("UPDATE menu set homepage=1 where link=:link");
+	$req->execute(array(
+        'link' => $link
+    ));
+	
+}
+function add_user($name, $pass, $email)
+{
+	$bdd = bdd_conect();
+	$passh = sha1($pass);
+	//echo $passh.' '.$name.' '.$email;
+	$req = $bdd->prepare("INSERT INTO users(id,pseudo,email,ran,mdp) values('',:pseudo,:email,'admin',:mdp)");
+    $req->bindParam(':pseudo',$name);
+    $req->bindParam(':email', $email);
+    $req->bindParam(':mdp', $passh);
+    $req->execute();
+}

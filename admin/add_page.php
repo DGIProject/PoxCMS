@@ -13,44 +13,42 @@ if ($_SESSION['pseudo'] != NULL)
 
    <html>
    <head>
-       <script type="text/javascript" src="../tiny_mce/tiny_mce.js"></script>
-       <script type="text/javascript">
-           tinyMCE.init({
-               // General options
-               mode : "textareas",
-               theme : "advanced",
-               plugins : "autolink,lists,spellchecker,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template",
-
-               // Theme options
-               theme_advanced_buttons1 : "save,newdocument,|,bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,|,styleselect,formatselect,fontselect,fontsizeselect",
-               theme_advanced_buttons2 : "cut,copy,paste,pastetext,pasteword,|,search,replace,|,bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,anchor,image,cleanup,help,code,|,insertdate,inserttime,preview,|,forecolor,backcolor",
-               theme_advanced_buttons3 : "tablecontrols,|,hr,removeformat,visualaid,|,sub,sup,|,charmap,emotions,iespell,media,advhr,|,print,|,ltr,rtl,|,fullscreen",
-               theme_advanced_buttons4 : "insertlayer,moveforward,movebackward,absolute,|,styleprops,spellchecker,|,cite,abbr,acronym,del,ins,attribs,|,visualchars,nonbreaking,template,blockquote,pagebreak,|,insertfile,insertimage",
-               theme_advanced_toolbar_location : "top",
-               theme_advanced_toolbar_align : "left",
-               theme_advanced_statusbar_location : "bottom",
-               theme_advanced_resizing : true,
-
-               // Skin options
-               skin : "o2k7",
-               skin_variant : "silver",
-
-               // Example content CSS (should be your site CSS)
-              // content_css : "css/example.css",
-
-               // Drop lists for link/image/media/template dialogs
-               template_external_list_url : "js/template_list.js",
-               external_link_list_url : "js/link_list.js",
-               external_image_list_url : "js/image_list.js",
-               media_external_list_url : "js/media_list.js",
-
-               // Replace values for the template plugin
-               template_replace_values : {
-                   username : "Some User",
-                   staffid : "991234"
-               }
-           });
-       </script>
+		<link rel="stylesheet" href="../elrte/css/smoothness/jquery-ui-1.8.13.custom.css" type="text/css" media="screen" charset="utf-8">
+		<link rel="stylesheet" href="../elrte/css/elrte.min.css" type="text/css" media="screen" charset="utf-8">
+		<script src="../elrte/js/jquery-1.6.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../elrte/js/jquery-ui-1.8.13.custom.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../elrte/js/elrte.min.js" type="text/javascript" charset="utf-8"></script>
+		
+		<link rel="stylesheet" type="text/css" media="screen" href="../elrte/css/elfinder.min.css">
+		<script type="text/javascript" src="../elrte/js/elfinder.min.js"></script>		
+		
+		<script type="text/javascript" charset="utf-8">
+		 $().ready(function() {
+			  var opts = {
+				 lang         : 'fr',   // set your language
+				 styleWithCSS : false,
+				 height       : 400,
+				 toolbar      : 'maxi',
+				 fmAllow : true,
+				 fmOpen : function(callback) {
+						$('<div />').dialogelfinder({
+						url: '../elrte/php/connector.php',
+						commandsOptions: {
+							getfile: {
+								oncomplete: 'destroy' // destroy elFinder after file selection
+							}
+						},
+						getFileCallback: callback // pass callback to file manager
+						});
+				 }
+			 };	
+			 
+			$('#content').elrte(opts);
+	
+			// or this way
+			// var editor = new elRTE(document.getElementById('our-element'), opts);
+		});	 
+	 </script>
        <title>ajouter une page</title>
    </head>
    <body>
@@ -61,7 +59,7 @@ if ($_SESSION['pseudo'] != NULL)
        POur ajouter une page vous devez entrer le titre de la page et ecrire son contenu dans l'editeur de texte enrichi.
        <form action="savepage.php" method="post">
          <label for="titre">Titre de la page</label>  <input type="text" name="titre" id="titre"><br>
-           <textarea name="content" class="content">
+           <textarea name="content" id="content">
                taper votre texte ici et utilisez les outil qui sont a votre dispositions !
            </textarea>
            <input type="submit" name="send">
