@@ -30,8 +30,8 @@ else
         <img src="img/logo.png" alt="" />
     </div>
         <div id="loginbox">
-            <form id="loginform" class="form-vertical" action="">
-                <p>Enter username and password to continue.</p>
+            <form id="loginform" class="form-vertical" method="POST" action="">
+                <p>Entrez vos identifiants et mots de passe pour continuer</p>
                 <div class="control-group">
                     <div class="controls">
                         <div class="input-prepend">
@@ -46,10 +46,18 @@ else
                         </div>
                     </div>
                 </div>
+                <?php if ($result != null)
+                { ?>
+                <div class="alert alert-error">
+                    <?php
+                    echo $result;
+                    ?>
+                </div><?php }?>
                 <div class="form-actions">
                     <span class="pull-left"><a href="#" class="flip-link" id="to-recover">Lost password?</a></span>
                     <span class="pull-right"><input type="submit" class="btn btn-inverse" value="Login" /></span>
                 </div>
+
             </form>
             <form id="recoverform" action="#" class="form-vertical">
                 <p>Enter your e-mail address below and we will send you instructions how to recover a password.</p>
@@ -65,13 +73,12 @@ else
                     <span class="pull-right"><input type="submit" class="btn btn-inverse" value="Recover" /></span>
                 </div>
             </form>
+
         </div>
 
             <script src="js/jquery.min.js"></script>
             <script src="js/unicorn.login.js"></script>
 
-<?php
-echo $result;
-?>
+
 </body>
 </html>
