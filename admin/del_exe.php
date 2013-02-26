@@ -9,10 +9,8 @@
 
 include "function.php";
 
-if ($_SESSION['pseudo'] != NULL)
-{
-    if (isset($_POST['page']))
-    {
+if ($_SESSION['pseudo'] != NULL) {
+    if (isset($_POST['page'])) {
         $page = $_POST['page'];
         $retour = delete_fichier($page);
         echo $retour;
@@ -20,8 +18,6 @@ if ($_SESSION['pseudo'] != NULL)
         <input type="submit" value="Retour">
         </form> ';
     }
-}
-else
-{
+} else {
     echo '<script type="text/javascript">window.location="index.php"</script>';
 }

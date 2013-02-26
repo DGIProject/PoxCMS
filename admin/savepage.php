@@ -7,17 +7,14 @@
  * To change this template use File | Settings | File Templates.
  */
 include ("function.php");
-if ($_SESSION['pseudo'] != NULL )
-{
+if ($_SESSION['pseudo'] != NULL) {
 
-    if (isset($_POST['content']) AND isset($_POST['titre']))
-    {
+    if (isset($_POST['content']) AND isset($_POST['titre'])) {
         $texte_html = stripslashes($_POST['content']);
-        $retour =  save_to_file($_POST['titre'],$_POST['content']);
+        $retour = save_to_file($_POST['titre'], $_POST['content']);
         echo $retour;
 
     }
+} else {
+    echo '<script type="text/javascript">window.location="index.php"</script>';
 }
-else
-{
-    echo '<script type="text/javascript">window.location="index.php"</script>';}

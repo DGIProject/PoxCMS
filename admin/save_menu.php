@@ -22,19 +22,18 @@ $req->execute(array(
 ));
 $retour_bbd = $req->fetch();
 echo $retour_bbd['id'];
-$i =0;
+$i = 0;
 
-while ($i < $number_of_occurence)
-{
+while ($i < $number_of_occurence) {
     $i++;
     echo $i;
 
-    $element = "element_".$i;
+    $element = "element_" . $i;
     echo $element;
-   $req = $bbd->prepare("INSERT into menu(id,input, parrent) VALUES('',:input,:parrent)");
+    $req = $bbd->prepare("INSERT into menu(id,input, parrent) VALUES('',:input,:parrent)");
     $req->execute(array(
-       'input' => $_POST[$element],
-       'parrent' => $retour_bbd['id']
+        'input' => $_POST[$element],
+        'parrent' => $retour_bbd['id']
     ));
 
 }

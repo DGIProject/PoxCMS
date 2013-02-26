@@ -13,7 +13,8 @@ include "function.php";
 <head>
 </head>
 <body>
-cette page vous permet d'editer vos menu :<br> pour que tous fonctionne bien vous devez choisir le menu que vous voulez editer avec le titre/decription que vous avez
+cette page vous permet d'editer vos menu :<br> pour que tous fonctionne bien vous devez choisir le menu que vous voulez
+editer avec le titre/decription que vous avez
 entrer lors de sa creation.<br>
 <?php
 if ($_GET['id'] != NULL) {
@@ -159,25 +160,25 @@ if (isset($_POST['select'])) {
             }
 
             ">
-    <option>dolphinmenu</option>
-    <option>horizontalderoulant1</option>
-    <option>saturday</option>
-    <option>simple-menu</option>
-    <option>slate Blue</option>
-	<option>slate green</option>
-	<option>slate Red</option>
-	<option>slate Purpule</option>
-    <option>style4</option>
-    <option>Timeforbed</option>
-    <option>wax blue</option>
-	<option>wax green</option>
-	<option>wax grey</option>
-	<option>wax Orange</option>
-	<option>wax Red</option>
-    <option>onglet 1</option>
-    <option>onglet 2</option>
-    <option>vertical 1</option>
-</select><br>
+        <option>dolphinmenu</option>
+        <option>horizontalderoulant1</option>
+        <option>saturday</option>
+        <option>simple-menu</option>
+        <option>slate Blue</option>
+        <option>slate green</option>
+        <option>slate Red</option>
+        <option>slate Purpule</option>
+        <option>style4</option>
+        <option>Timeforbed</option>
+        <option>wax blue</option>
+        <option>wax green</option>
+        <option>wax grey</option>
+        <option>wax Orange</option>
+        <option>wax Red</option>
+        <option>onglet 1</option>
+        <option>onglet 2</option>
+        <option>vertical 1</option>
+    </select><br>
     <iframe id="preview" width="700px" height="100px"></iframe>
     <input type="hidden" value="" id="CHt" name="id">
     <input type="hidden" name="title" value="<?php echo $_POST['select']; ?>">
@@ -186,37 +187,39 @@ if (isset($_POST['select'])) {
 </form>
 <br>
 <form method="post" action="save_edited_menu.php">
-<table>
-    <tr><td>Elements</td>
-        <?php
-	$i2 = 0 ;
-        foreach ($rep as $done) {
-            echo '<td>' . $done['input'] . '</td><input type="hidden" name="input'.$i2.'" value="'.$done['input'].'">';
-		$i2++;
-        }
-        ?>
-    </tr>
-    <tr><td>pages</td>
-    <?php 
-    $listepages = get_liste_page();
-    $i =0 ;
-    foreach ($rep as $done) {
-            echo '<td><select name="pageforelement'.$i.'">';
-            foreach ($listepages as $value) {
-            	
-            	echo '<option>'. $value['titre'].'</option>';
-            	
+    <table>
+        <tr>
+            <td>Elements</td>
+            <?php
+            $i2 = 0;
+            foreach ($rep as $done) {
+                echo '<td>' . $done['input'] . '</td><input type="hidden" name="input' . $i2 . '" value="' . $done['input'] . '">';
+                $i2++;
             }
-            echo '</select></td>';
-            $i++;
-        }
-    
-    ?>
-    </tr>
-</table>
-<input type="hidden" name="numberofelemt" value="<?php echo $i ; ?>" />
-<input type="hidden" name="id" value="<?php echo $id; ?>" />
-<input type="submit" name="save" value="entegistrer les page" />
+            ?>
+        </tr>
+        <tr>
+            <td>pages</td>
+            <?php
+            $listepages = get_liste_page();
+            $i = 0;
+            foreach ($rep as $done) {
+                echo '<td><select name="pageforelement' . $i . '">';
+                foreach ($listepages as $value) {
+
+                    echo '<option>' . $value['titre'] . '</option>';
+
+                }
+                echo '</select></td>';
+                $i++;
+            }
+
+            ?>
+        </tr>
+    </table>
+    <input type="hidden" name="numberofelemt" value="<?php echo $i; ?>"/>
+    <input type="hidden" name="id" value="<?php echo $id; ?>"/>
+    <input type="submit" name="save" value="entegistrer les page"/>
 </form>
 
     <?php } ?>

@@ -8,13 +8,11 @@
  */
 include ("function.php");
 session_start();
-if ($_SESSION['pseudo'] != NULL )
-{
+if ($_SESSION['pseudo'] != NULL) {
 
-    if (isset($_POST['content']) AND isset($_POST['selected']))
-    {
+    if (isset($_POST['content']) AND isset($_POST['selected'])) {
         $texte_html = stripslashes($_POST['content']);
-       $retour =  save_to_file($_POST['selected'],$_POST['content']);
+        $retour = save_to_file($_POST['selected'], $_POST['content']);
         echo $retour;
         echo '<form action="admin.php">
         <input type="submit" value="Retour">
@@ -22,8 +20,6 @@ if ($_SESSION['pseudo'] != NULL )
     }
     echo $_POST['pages_selected'];
 
-}
-else
-{
+} else {
     echo '<script type="text/javascript">window.location="index.php"</script>';
 }
