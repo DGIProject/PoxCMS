@@ -59,7 +59,7 @@ include 'function.php';
             <h1>Nouvel utilisateur</h1>
             <div class="btn-group">
                 <a class="btn btn-large tip-bottom" title="Manage Pages"><i class="icon-file"></i></a>
-                <a class="btn btn-large tip-bottom" title="Manage Users"><i class="icon-user"></i></a>
+                <a class="btn btn-large tip-bottom" title="Manage Users" href="users.php"><i class="icon-user"></i></a>
                 <a class="btn btn-large tip-bottom" title="Manage Files"><i class="icon-folder-open"></i></a>
             </div>
         </div>

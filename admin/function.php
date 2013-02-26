@@ -145,3 +145,11 @@ function add_user($name, $pass, $email)
     $req->bindParam(':mdp', $passh);
     $req->execute();
 }
+function get_user_list()
+{
+    $bdd = bdd_conect();
+    $req = $bdd->prepare('SELECT * FROM users');
+    $req->execute();
+    $liste_users = $req->fetchAll();
+    return $liste_users;
+}
