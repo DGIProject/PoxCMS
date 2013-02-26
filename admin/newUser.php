@@ -65,7 +65,7 @@ if ($_GET['add'] == 1)
         <div id="content-header">
             <h1>Nouvel utilisateur</h1>
             <div class="btn-group">
-                <a class="btn btn-large tip-bottom" title="Manage Pages"><i class="icon-file"></i></a>
+                <a class="btn btn-large tip-bottom" title="Manage Pages" href="pages.php"><i class="icon-file"></i></a>
                 <a class="btn btn-large tip-bottom" title="Manage Users" href="users.php"><i class="icon-user"></i></a>
                 <a class="btn btn-large tip-bottom" title="Manage Files"><i class="icon-folder-open"></i></a>
             </div>
@@ -129,7 +129,7 @@ if ($_GET['add'] == 1)
         <script type="text/javascript">
         $.gritter.add({
             title:	'nouvel utilisateur',
-            text:	'Nouvel utilisateur a été ajouté avec succe',
+            text:	'Nouvel utilisateur a été ajouté avec succé',
             image: 	'img/valide.png',
             sticky: false
         });
