@@ -93,12 +93,6 @@ if ($_SESSION['pseudo'] == null)
             {
             echo '<tr><td>'. $users['pseudo'].'</td><td>'.$users['email'].'</td><td>'.$users['ran'].'</td><td><a href="#'.$users['id'].'" class="btn btn-danger"><i class="icon-remove"></i>Suprimer</a><a href="#'.$users['id'].'" class="btn btn-info"><i class="icon-pencil"></i>Editer</a></td></tr>';
             } ?>
-            <tr>
-                <td>gv144</td>
-                <td>guiguivil@gail.com</td>
-                <td>Admin</td>
-                <td><a href="#" class="btn btn-danger"><i class="icon-remove"></i>Suprimer</a><a href="#" class="btn btn-info"><i class="icon-pencil"></i>Editer</a></td>
-            </tr>
             </tbody>
             </table>
             </div>

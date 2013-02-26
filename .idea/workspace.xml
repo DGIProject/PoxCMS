@@ -34,10 +34,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="admin.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="admin.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/admin.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="60" column="85" selection-start="3139" selection-end="3139" vertical-scroll-proportion="0.37884617">
+            <state line="60" column="85" selection-start="3139" selection-end="3139" vertical-scroll-proportion="-7.576923">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="newUser.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/admin/newUser.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="136" column="12" selection-start="6597" selection-end="6597" vertical-scroll-proportion="0.83653843">
               <folding />
             </state>
           </provider>
@@ -46,16 +55,7 @@
       <file leaf-file-name="unicorn.interface.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/js/unicorn.interface.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="newUser.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/newUser.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="61" column="89" selection-start="3376" selection-end="3376" vertical-scroll-proportion="-12.423077">
+            <state line="41" column="0" selection-start="834" selection-end="834" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -64,10 +64,8 @@
       <file leaf-file-name="users.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/users.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="63" column="85" selection-start="3307" selection-end="3323" vertical-scroll-proportion="-14.384615">
-              <folding>
-                <marker date="1361873877516" expanded="true" signature="4677:4812" placeholder="..." />
-              </folding>
+            <state line="94" column="16" selection-start="4661" selection-end="4661" vertical-scroll-proportion="-61.46154">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -75,7 +73,7 @@
       <file leaf-file-name="function.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/function.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="153" column="24" selection-start="3811" selection-end="3811" vertical-scroll-proportion="-15.923077">
+            <state line="145" column="20" selection-start="3625" selection-end="3625" vertical-scroll-proportion="-10.692307">
               <folding />
             </state>
           </provider>
@@ -106,12 +104,13 @@
         <option value="$PROJECT_DIR$/admin/css/unicorn.login.css" />
         <option value="$PROJECT_DIR$/admin/index.php" />
         <option value="$PROJECT_DIR$/admin/js/unicorn.wizard.js" />
-        <option value="$PROJECT_DIR$/admin/js/unicorn.form_validation.js" />
         <option value="$PROJECT_DIR$/admin/js/unicorn.js" />
-        <option value="$PROJECT_DIR$/admin/function.php" />
-        <option value="$PROJECT_DIR$/admin/users.php" />
-        <option value="$PROJECT_DIR$/admin/newUser.php" />
         <option value="$PROJECT_DIR$/admin/admin.php" />
+        <option value="$PROJECT_DIR$/admin/users.php" />
+        <option value="$PROJECT_DIR$/admin/js/unicorn.form_validation.js" />
+        <option value="$PROJECT_DIR$/admin/function.php" />
+        <option value="$PROJECT_DIR$/admin/js/unicorn.interface.js" />
+        <option value="$PROJECT_DIR$/admin/newUser.php" />
       </list>
     </option>
   </component>
@@ -199,6 +198,60 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PoxCMS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PoxCMS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PoxCMS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PoxCMS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="img" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PoxCMS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PoxCMS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="images" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -229,6 +282,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\guillaume\Documents\GitHub\PoxCMS\admin\img" />
       <recent name="C:\Users\guillaume\Documents\GitHub\PoxCMS\admin" />
     </key>
   </component>
@@ -350,13 +404,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/admin/js/unicorn.login.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="8" selection-start="138" selection-end="138" vertical-scroll-proportion="0.21288015">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin/js/jquery.validate.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-22.884615">
@@ -385,21 +432,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/js/unicorn.form_validation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="93" column="21" selection-start="2035" selection-end="2035" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin/js/unicorn.tables.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/js/unicorn.interface.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
@@ -434,32 +467,49 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/function.php">
+    <entry file="file://$PROJECT_DIR$/admin/admin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="153" column="24" selection-start="3811" selection-end="3811" vertical-scroll-proportion="-15.923077">
+        <state line="60" column="85" selection-start="3139" selection-end="3139" vertical-scroll-proportion="-7.576923">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/users.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="85" selection-start="3307" selection-end="3323" vertical-scroll-proportion="-14.384615">
-          <folding>
-            <marker date="1361873877516" expanded="true" signature="4677:4812" placeholder="..." />
-          </folding>
+        <state line="94" column="16" selection-start="4661" selection-end="4661" vertical-scroll-proportion="-61.46154">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/js/unicorn.form_validation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="7" selection-start="782" selection-end="782" vertical-scroll-proportion="0.24304268">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/function.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="145" column="20" selection-start="3625" selection-end="3625" vertical-scroll-proportion="-10.692307">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/img/valide.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/js/unicorn.interface.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="0" selection-start="834" selection-end="834" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/newUser.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="89" selection-start="3376" selection-end="3376" vertical-scroll-proportion="-12.423077">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/admin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="85" selection-start="3139" selection-end="3139" vertical-scroll-proportion="0.37884617">
+        <state line="136" column="12" selection-start="6597" selection-end="6597" vertical-scroll-proportion="0.83653843">
           <folding />
         </state>
       </provider>

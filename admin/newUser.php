@@ -1,9 +1,15 @@
 <?php 
 
 include 'function.php';
-
 ?>
 <!DOCTYPE html>
+<?php
+if ($_GET['add'] == 1)
+{
+    add_user($_POST['username'], $_POST['password1'], $_POST['email']);
+}
+?>
+
 <html>
 <head>
 	<title>ajout utilisateur</title>
@@ -14,6 +20,7 @@ include 'function.php';
     <link rel="stylesheet" href="css/uniform.css" />
     <link rel="stylesheet" href="css/select2.css" />
     <link rel="stylesheet" href="css/unicorn.main.css" />
+    <link rel="stylesheet" href="css/jquery.gritter.css" />
     <link rel="stylesheet" href="css/unicorn.grey.css" class="skin-color" />
 </head>
 	<body>
@@ -69,11 +76,8 @@ include 'function.php';
         </div>
         <div class="container-fluid">
             <div class="row-fluid">
-                <div class="span12"><!-- <label for="user">UserName</label><input type="text" name="username" id="user"/><br>
-                        <label for="pass1">mot de passe</label><input type="password" name="password1" id="pass1"/><br>
-                        <label for="pass2">confirmation</label><input type="password" name="password2" id="pass2"/><br>
-                        <label for="email">email</label><input type="text" name="mail1" id="email"/><br> !-->
-                    <form class="form-horizontal" method="post" action="" name="Newuser" id="NewUser_validate">
+                <div class="span12">
+                    <form class="form-horizontal" method="post" action="?add=1" name="Newuser" id="NewUser_validate">
                         <div class="control-group">
                             <label class="control-label">Nom d'utilisateur</label>
                             <div class="controls">
@@ -113,9 +117,24 @@ include 'function.php';
     <script src="js/jquery.ui.custom.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.uniform.js"></script>
+    <script src="js/jquery.gritter.min.js"></script>
+    <script src="js/jquery.peity.min.js"></script>
     <script src="js/select2.min.js"></script>
     <script src="js/jquery.validate.js"></script>
     <script src="js/unicorn.js"></script>
     <script src="js/unicorn.form_validation.js"></script>
+    <script src="js/unicorn.interface.js"></script>
+   <?php  if ($_GET['add'] == 1)
+{?>
+        <script type="text/javascript">
+        $.gritter.add({
+            title:	'nouvel utilisateur',
+            text:	'Nouvel utilisateur a été ajouté avec succe',
+            image: 	'img/valide.png',
+            sticky: false
+        });
+    </script>
+    <?php  }?>
+
 	</body>
 </html>

@@ -1,7 +1,3 @@
-/**
- * Unicorn Admin Template
- * Diablo9983 -> diablo9983@gmail.com
-**/
 $(document).ready(function(){
 	
 	// === jQuery Peity === //
@@ -43,12 +39,7 @@ $(document).ready(function(){
 	});
 	
 	// === jQeury Gritter, a growl-like notifications === //
-	$.gritter.add({
-		title:	'Unread messages',
-		text:	'You have 9 unread messages.',
-		image: 	'img/demo/envelope.png',
-		sticky: false
-	});	
+
 	$('#gritter-notify .normal').click(function(){
 		$.gritter.add({
 			title:	'Normal notification',
