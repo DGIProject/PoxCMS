@@ -15,9 +15,7 @@ if ($_SESSION['pseudo'] != NULL )
         $texte_html = stripslashes($_POST['content']);
         $retour =  save_to_file($_POST['titre'],$_POST['content']);
         echo $retour;
-        echo '<form action="admin.php">
-        <input type="submit" value="Retour">
-        </form> ';
+
     }
 }
 else

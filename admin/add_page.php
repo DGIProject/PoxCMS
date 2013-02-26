@@ -13,6 +13,7 @@ if ($_SESSION['pseudo'] != NULL)
 <!DOCTYPE html>
    <html>
    <head>
+       <script type="text/javascript" src="js/ajax.js"></script>
 		<link rel="stylesheet" href="../elrte/css/smoothness/jquery-ui-1.8.13.custom.css" type="text/css" media="screen" charset="utf-8">
 		<link rel="stylesheet" href="../elrte/css/elrte.min.css" type="text/css" media="screen" charset="utf-8">
 		<script src="../elrte/js/jquery-1.6.1.min.js" type="text/javascript" charset="utf-8"></script>
@@ -55,6 +56,7 @@ if ($_SESSION['pseudo'] != NULL)
        <link rel="stylesheet" href="css/uniform.css" />
        <link rel="stylesheet" href="css/select2.css" />
        <link rel="stylesheet" href="css/unicorn.main.css" />
+       <link rel="stylesheet" href="css/jquery.gritter.css" />
        <link rel="stylesheet" href="css/unicorn.grey.css" class="skin-color" />
    </head>
    <body>
@@ -76,7 +78,7 @@ if ($_SESSION['pseudo'] != NULL)
            <div class="row-fluid">
                <div class="span12">
                    Pour ajouter une page vous devez entrer le titre de la page et ecrire son contenu dans l'editeur de texte enrichi.<br/>
-                   <form class="form-horizontal" action="savepage.php" method="post">
+                   <form class="form-horizontal" method="post" onsubmit="confirmAdding(this.content.value, this.titre.value); return false;" >
                        <div class="control-group">
                            <label class="control-label">Titre de la page</label>
                            <div class="controls">
@@ -92,8 +94,9 @@ if ($_SESSION['pseudo'] != NULL)
                            </div>
                        </div>
                        <div class="form-actions">
-                           <input type="submit" value="créer la page" name="send" class="btn btn-primary">
+                           <input type="submit" value="créer la page" name="send" id="sendbutton" class="btn btn-primary">
                        </div>
+                       <div id="message"></div>
                    </form>
                    </div>
                </div>
@@ -102,6 +105,14 @@ if ($_SESSION['pseudo'] != NULL)
 
 
    </body>
+   <script src="js/jquery.ui.custom.js"></script>
+   <script src="js/bootstrap.min.js"></script>
+   <script src="js/jquery.uniform.js"></script>
+   <script src="js/jquery.gritter.min.js"></script>
+   <script src="js/jquery.peity.min.js"></script>
+   <script src="js/select2.min.js"></script>
+   <script src="js/unicorn.js"></script>
+   <script src="js/unicorn.interface.js"></script>
    </html>
 <?php
 }
