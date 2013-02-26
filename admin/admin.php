@@ -57,10 +57,9 @@ if ($_SESSION['pseudo'] != NULL)
     <div id="content-header">
         <h1>Dashboard</h1>
         <div class="btn-group">
-            <a class="btn btn-large tip-bottom" title="Manage Files"><i class="icon-file"></i></a>
+            <a class="btn btn-large tip-bottom" title="Manage Pages"><i class="icon-file"></i></a>
             <a class="btn btn-large tip-bottom" title="Manage Users"><i class="icon-user"></i></a>
-            <a class="btn btn-large tip-bottom" title="Manage Comments"><i class="icon-comment"></i><span class="label label-important">5</span></a>
-            <a class="btn btn-large tip-bottom" title="Manage Orders"><i class="icon-shopping-cart"></i></a>
+            <a class="btn btn-large tip-bottom" title="Manage Files"><i class="icon-folder-open"></i></a>
         </div>
     </div>
     <div id="breadcrumb">

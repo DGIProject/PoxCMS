@@ -1,7 +1,3 @@
-/**
- * Unicorn Admin Template
- * Diablo9983 -> diablo9983@gmail.com
-**/
 $(document).ready(function(){
 	
 	$("#form-wizard").formwizard({ 
@@ -23,16 +19,14 @@ $(document).ready(function(){
 				password2: {
 					equalTo: "#password"
 				},
-				email: { required: true, email: true },
-				eula: "required"
+				email: { required: true, email: true }
 			},
 			messages: {
 				username: "Please enter your name or username",
 				password: "You must enter the password",
 				password2: { equalTo: "Password don't match" },
-				email: { required: "Please, enter your email", email: "Correct email format is name@domain.com" },
-				eula: "You must accept the eula"
-			},
+				email: { required: "Please, enter your email", email: "Correct email format is name@domain.com" }
+            },
 			errorClass: "help-inline",
 			errorElement: "span",
 			highlight:function(element, errorClass, validClass) {

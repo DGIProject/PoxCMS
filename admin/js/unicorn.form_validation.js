@@ -88,4 +88,38 @@ $(document).ready(function(){
 			$(element).parents('.control-group').addClass('success');
 		}
 	});
+
+    $("#NewUser_validate").validate({
+        rules:{
+            password1:{
+                required: true,
+                minlength:6,
+                maxlength:20
+            },
+            password2:{
+                required:true,
+                minlength:6,
+                maxlength:20,
+                equalTo:"#password"
+            },
+            email:{
+                required:true,
+                email: true
+            },
+            username: {
+                required: true,
+                minlength:3,
+                maxlength:20
+            }
+        },
+        errorClass: "help-inline",
+        errorElement: "span",
+        highlight:function(element, errorClass, validClass) {
+            $(element).parents('.control-group').addClass('error');
+        },
+        unhighlight: function(element, errorClass, validClass) {
+            $(element).parents('.control-group').removeClass('error');
+        }
+    });
+
 });
