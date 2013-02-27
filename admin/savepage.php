@@ -10,7 +10,6 @@ include ("function.php");
 if ($_SESSION['pseudo'] != NULL) {
 
     if (isset($_POST['content']) AND isset($_POST['titre'])) {
-        $texte_html = stripslashes($_POST['content']);
         $retour = save_to_file($_POST['titre'], $_POST['content']);
         echo $retour;
 

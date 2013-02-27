@@ -74,37 +74,61 @@ include "function.php";
     </div>
     <div id="breadcrumb">
         <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a>
-        <a href="#" class="current">Dashboard</a>
+        <a href="#" class="current">Editer une page</a>
     </div>
     <div class="container-fluid">
         <div class="row-fluid">
             <div class="span12">
 
-<p>Bienvenue dans la zone d'edition de page :
-    ici vous pourez editer les page que vous souhaitez.
-    <br>avant cela vous devez choisir dans la liste ci-dessous la page que vous voulez editer</p>
-<?php
+                <p>Bienvenue dans la zone d'edition de page :
+                    ici vous pourez editer les page que vous souhaitez.
+                    <br>avant cela vous devez choisir dans la liste ci-dessous la page que vous voulez editer</p>
+                <?php
+                if ($_GET['p'] == null) {
+                    ?>
+                    <form name="choose" action="#" method="get">
 
-if (isset($_GET['p'])) {
-    echo $_GET['p'] . ' :';
-    ?>
-<form action="save_edited_file.php"  onsubmit="confirmEdit(this.selected1.value, this.content1.value); return false;" method="post">
-    <textarea id="content1" name="content1">
-        <?php
-        echo load_page($_GET['p']);
-        ?>
-    </textarea>
-    <input type="hidden" name="selected1" value="<?php echo $_GET['p'];?>">
-    <input type="submit" class="btn btn-info" name="save_file_page" value="sauvegarder">
-</form>
-    <?php
-}
+                        <div class="control-group">
+                            <label class="control-label">Choisisez la page</label>
 
-?>
-                </div>
+                            <div class="controls">
+                                <select onchange="document.choose.submit()" name="p">
+                                    <option>--</option>
+                                    <?php
+                                    $list = get_liste_page();
+                                    foreach ($list as $pagename) {
+                                        echo '<option>' . $pagename['titre'] . '</option>';
+                                    }
+                                    ?>
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                    <?php
+                }
+
+                if (isset($_GET['p'])) {
+                    echo $_GET['p'] . ' :';
+                    ?>
+                    <form action="save_edited_file.php"
+                          onsubmit="confirmEdit(this.selected1.value, this.content1.value); return false;"
+                          method="post">
+                        <textarea id="content1" name="content1">
+                            <?php
+                            echo load_page($_GET['p']);
+                            ?>
+                        </textarea>
+                        <input type="hidden" name="selected1" value="<?php echo $_GET['p'];?>">
+                        <input type="submit" class="btn btn-info" name="save_file_page" value="sauvegarder">
+                    </form>
+                    <?php
+                }
+
+                ?>
             </div>
         </div>
     </div>
+</div>
 <script src="js/jquery.ui.custom.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery.uniform.js"></script>
@@ -112,5 +136,6 @@ if (isset($_GET['p'])) {
 <script src="js/select2.min.js"></script>
 <script src="js/unicorn.js"></script>
 <script src="js/unicorn.interface.js"></script>
+<script src="js/unicorn.form_common.js"></script>
 </body>
 </html>
