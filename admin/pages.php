@@ -53,7 +53,7 @@ include "function.php";
                             <tbody><?php
                             $list = get_liste_page();
                             foreach ($list as $pages) {
-                                echo '<tr><td>' . $pages['titre'] . '</td><td>' . $pages['link'] . '</td><td>' . $pages['dte'] . '</td><td><a href="del_page.php?p=' . $pages['titre'] . '" class="btn btn-danger"><i class="icon-remove"></i>Suprimer</a><a href="#' . $pages['id'] . '" class="btn btn-info"><i class="icon-pencil"></i>Editer</a><a href="#' . $pages['id'] . '" class="btn"><i class="icon-eye-open"></i>Prévisualiser</a></td></tr>';
+                                echo '<tr><td>' . $pages['titre'] . '</td><td>' . $pages['link'] . '</td><td>' . $pages['dte'] . '</td><td><a href="del_page.php?p=' . $pages['titre'] . '" class="btn btn-danger"><i class="icon-remove"></i>Suprimer</a><a href="edit_page.php?p=' . $pages['titre'] . '" class="btn btn-info"><i class="icon-pencil"></i>Editer</a><a href="#' . $pages['id'] . '" class="btn"><i class="icon-eye-open"></i>Prévisualiser</a></td></tr>';
                             } ?>
                             </tbody>
                         </table>

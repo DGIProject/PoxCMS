@@ -63,3 +63,32 @@ function deletepage(page)
     OAjax.setRequestHeader('Content-type','application/x-www-form-urlencoded');
     OAjax.send('page='+page);
 }
+function confirmEdit(page, content)
+{
+    var OAjax;
+    if (window.XMLHttpRequest) OAjax = new XMLHttpRequest();
+    else if (window.ActiveXObject) OAjax = new ActiveXObject('Microsoft.XMLHTTP');
+    OAjax.open('POST',"save_edited_file.php",true);
+    OAjax.onreadystatechange = function()
+    {
+        if (OAjax.readyState == 4 && OAjax.status==200)
+        {
+            if (document.getElementById)
+            {
+                if (OAjax.responseText !='true') {
+                    $.gritter.add({
+                        title:	'Page edité avec succée',
+                        text:	OAjax.responseText,
+                        image: 	'img/valide.png',
+                        sticky: false
+                    });
+                    var obj = 'window.location.replace("pages.php");';
+                    setTimeout(obj,2000);
+                }
+
+            }
+        }
+    }
+    OAjax.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+    OAjax.send('selected1='+page+'&content1='+content);
+}
