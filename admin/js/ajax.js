@@ -32,3 +32,32 @@ function confirmAdding(content,titre)
     OAjax.setRequestHeader('Content-type','application/x-www-form-urlencoded');
     OAjax.send('content='+content +'&titre='+titre);
 }
+function deletepage(page)
+{
+    var OAjax;
+    if (window.XMLHttpRequest) OAjax = new XMLHttpRequest();
+    else if (window.ActiveXObject) OAjax = new ActiveXObject('Microsoft.XMLHTTP');
+    OAjax.open('POST',"del_exe.php",true);
+    OAjax.onreadystatechange = function()
+    {
+        if (OAjax.readyState == 4 && OAjax.status==200)
+        {
+            if (document.getElementById)
+            {
+                if (OAjax.responseText !='true') {
+                    $.gritter.add({
+                        title:	'Page suprimé avec succée',
+                        text:	OAjax.responseText,
+                        image: 	'img/valide.png',
+                        sticky: false
+                    });
+                    var obj = 'window.location.replace("pages.php");';
+                    setTimeout(obj,2000);
+                }
+
+            }
+        }
+    }
+    OAjax.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+    OAjax.send('page='+page);
+}

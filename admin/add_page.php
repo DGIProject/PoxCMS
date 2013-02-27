@@ -14,8 +14,7 @@ if ($_SESSION['pseudo'] != NULL) {
 <html>
 <head>
     <script type="text/javascript" src="js/ajax.js"></script>
-    <link rel="stylesheet" href="../elrte/css/smoothness/jquery-ui-1.8.13.custom.css" type="text/css" media="screen"
-          charset="utf-8">
+    <link rel="stylesheet" href="../elrte/css/smoothness/jquery-ui-1.8.13.custom.css" type="text/css" media="screen" charset="utf-8">
     <link rel="stylesheet" href="../elrte/css/elrte.min.css" type="text/css" media="screen" charset="utf-8">
     <script src="../elrte/js/jquery-1.6.1.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="../elrte/js/jquery-ui-1.8.13.custom.min.js" type="text/javascript" charset="utf-8"></script>

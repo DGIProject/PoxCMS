@@ -14,9 +14,6 @@ if ($_SESSION['pseudo'] != NULL) {
         $page = $_POST['page'];
         $retour = delete_fichier($page);
         echo $retour;
-        echo '<form action="admin.php">
-        <input type="submit" value="Retour">
-        </form> ';
     }
 } else {
     echo '<script type="text/javascript">window.location="index.php"</script>';
