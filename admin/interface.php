@@ -39,6 +39,6 @@
         <li><a href="add_menu.php"><i class="icon icon-plus"></i>Ajouter un menu</a></li>
         <li><a href="edit_menu.php"><i class="icon icon-edit"></i>editer un menu</a></li>
         <li><a href="def_home.php">Definir la page d'accueille du site</a></li>
-        <li><a href="newUser.php"><i class="icon icon-user"></i>Ajouter un utilisateur</a></li>
+        <li><a href="users.php"><i class="icon icon-user"></i>Gestion des Utilisateurs</a></li>
     </ul>
 </div>

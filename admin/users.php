@@ -37,6 +37,7 @@ if ($_SESSION['pseudo'] == null) {
         <div class="container-fluid">
             <div class="row-fluid">
                 <div class="span12">
+                    <a href="newUser.php.php" class="btn btn-success"><i class="icon-plus-sign"></i> Ajouter un utilisateur</a>
                     <div class="widget-box">
                         <div class="widget-title">
 
