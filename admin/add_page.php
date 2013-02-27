@@ -111,9 +111,8 @@ if ($_SESSION['pseudo'] != NULL) {
 
 
 </body>
-<script src="js/jquery.ui.custom.js"></script>
+
 <script src="js/bootstrap.min.js"></script>
-<script src="js/jquery.uniform.js"></script>
 <script src="js/jquery.gritter.min.js"></script>
 <script src="js/jquery.peity.min.js"></script>
 <script src="js/select2.min.js"></script>

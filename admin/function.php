@@ -58,7 +58,7 @@ function save_to_file($titre, $texte)
 
     if (fputs($fichier_conf, $texte)) {
         save_file_to_bdd($file_name_ex, $titre);
-        return "votre page est disponible ici :" . $chemin;
+        return "votre page est disponible ici :" . $texte;
     } else {
         return false;
     }
