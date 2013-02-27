@@ -92,3 +92,26 @@ function confirmEdit(page, content)
     OAjax.setRequestHeader('Content-type','application/x-www-form-urlencoded');
     OAjax.send('selected1='+page+'&content1='+content);
 }
+function preview(page)
+{
+    document.getElementById('returne').innerHTML ='<center><img src="../installation/images/loading4.gif"></center>';
+    var OAjax;
+    if (window.XMLHttpRequest) OAjax = new XMLHttpRequest();
+    else if (window.ActiveXObject) OAjax = new ActiveXObject('Microsoft.XMLHTTP');
+    OAjax.open('POST',"viewPage.php",true);
+    OAjax.onreadystatechange = function()
+    {
+        if (OAjax.readyState == 4 && OAjax.status==200)
+        {
+            if (document.getElementById)
+            {
+                if (OAjax.responseText !='true') {
+                    document.getElementById('returne').innerHTML = OAjax.responseText;
+                }
+
+            }
+        }
+    }
+    OAjax.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+    OAjax.send('page='+page);
+}

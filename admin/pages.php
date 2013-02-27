@@ -6,6 +6,7 @@ include "function.php";
 <head>
     <title>User Lise - PoxAdmin</title>
     <meta charset="UTF-8"/>
+    <script type="text/javascript" src="js/ajax.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" href="css/bootstrap.min.css"/>
     <link rel="stylesheet" href="css/bootstrap-responsive.min.css"/>
@@ -53,10 +54,21 @@ include "function.php";
                             <tbody><?php
                             $list = get_liste_page();
                             foreach ($list as $pages) {
-                                echo '<tr><td>' . $pages['titre'] . '</td><td>' . $pages['link'] . '</td><td>' . $pages['dte'] . '</td><td><a href="del_page.php?p=' . $pages['titre'] . '" class="btn btn-danger"><i class="icon-remove"></i>Suprimer</a><a href="edit_page.php?p=' . $pages['titre'] . '" class="btn btn-info"><i class="icon-pencil"></i>Editer</a><a href="#' . $pages['id'] . '" class="btn"><i class="icon-eye-open"></i>Prévisualiser</a></td></tr>';
+                                echo '<tr><td>' . $pages['titre'] . '</td><td>' . $pages['link'] . '</td><td>' . $pages['dte'] . '</td><td><a href="del_page.php?p=' . $pages['titre'] . '" class="btn btn-danger"><i class="icon-remove"></i>Suprimer</a><a href="edit_page.php?p=' . $pages['titre'] . '" class="btn btn-info"><i class="icon-pencil"></i>Editer</a><a href="#preview" onclick="preview(\''.$pages['titre'].'\');" data-toggle="modal" class="btn"><i class="icon-eye-open"></i>Prévisualiser</a></td></tr>';
                             } ?>
                             </tbody>
                         </table>
+                        <div id="preview" class="modal hide">
+                            <div class="modal-header">
+                                <button data-dismiss="modal" class="close" type="button">×</button>
+                                <h3>Modal header</h3>
+                            </div>
+                            <div class="modal-body">
+                                <div id="returne">
+                                    <center><img src="../installation/images/loading4.gif"></center>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
