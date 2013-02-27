@@ -24,6 +24,8 @@ function confirmAdding(content,titre)
                         image: 	'img/valide.png',
                         sticky: false
                     });
+                    var obj = 'window.location.replace("pages.php");';
+                    setTimeout(obj,2000);
                 }
 
             }
