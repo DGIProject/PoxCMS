@@ -13,14 +13,6 @@ include "function.php";
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="../elrte/css/smoothness/jquery-ui-1.8.13.custom.css" type="text/css" media="screen"
-          charset="utf-8">
-    <link rel="stylesheet" href="../elrte/css/elrte.min.css" type="text/css" media="screen" charset="utf-8">
-    <script src="../elrte/js/jquery-1.6.1.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="../elrte/js/jquery-ui-1.8.13.custom.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="../elrte/js/elrte.min.js" type="text/javascript" charset="utf-8"></script>
-    <link rel="stylesheet" type="text/css" media="screen" href="../elrte/css/elfinder.min.css">
-    <script type="text/javascript" src="../elrte/js/elfinder.min.js"></script>
     <script type="text/javascript" src="js/ajax.js"></script>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -31,33 +23,6 @@ include "function.php";
     <link rel="stylesheet" href="css/unicorn.main.css"/>
     <link rel="stylesheet" href="css/jquery.gritter.css"/>
     <link rel="stylesheet" href="css/unicorn.grey.css" class="skin-color"/>
-    <script type="text/javascript" charset="utf-8">
-        $().ready(function () {
-            var opts = {
-                lang:'fr', // set your language
-                styleWithCSS:false,
-                height:400,
-                toolbar:'maxi',
-                fmAllow:true,
-                fmOpen:function (callback) {
-                    $('<div />').dialogelfinder({
-                        url:'../elrte/php/connector.php',
-                        commandsOptions:{
-                            getfile:{
-                                oncomplete:'destroy' // destroy elFinder after file selection
-                            }
-                        },
-                        getFileCallback:callback // pass callback to file manager
-                    });
-                }
-            };
-
-            $('#content1').elrte(opts);
-
-            // or this way
-            // var editor = new elRTE(document.getElementById('our-element'), opts);
-        });
-    </script>
     <title>Editer une page</title>
 </head>
 <body>
