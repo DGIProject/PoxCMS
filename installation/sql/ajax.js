@@ -81,7 +81,6 @@ function save_info_bdd(host,ident,pass,base)
             if (document.getElementById)
             {
                 if (OAjax.responseText =='true') {
-                    alert(OAjax.responseText+"google2");
                     document.getElementById('ok').style.display="";
                     document.getElementById('msg3').style.display="none";
                     document.getElementById('erreur').style.display="none";
