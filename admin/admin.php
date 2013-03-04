@@ -5,29 +5,27 @@ if ($_SESSION['pseudo'] != NULL) {
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Unicorn Admin</title>
+    <title>Pox panel Admin</title>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" href="css/bootstrap.min.css"/>
     <link rel="stylesheet" href="css/bootstrap-responsive.min.css"/>
-    <link rel="stylesheet" href="css/fullcalendar.css"/>
     <link rel="stylesheet" href="css/unicorn.main.css"/>
     <link rel="stylesheet" href="css/unicorn.grey.css" class="skin-color"/>
 </head>
 <body>
-<div id="header">
-    <?php include "interface.php"; ?>
-    <div id="content">
-        <div id="content-header">
-            <h1>Dashboard</h1>
+<?php include "interface.php"; ?>
+<div id="content">
+    <div id="content-header">
+        <h1>Dashboard</h1>
 
-            <div class="btn-group">
-                <a class="btn btn-large tip-bottom" title="Manage Pages" href="pages.php"><i class="icon-file"></i></a>
-                <a class="btn btn-large tip-bottom" title="Manage Users" href="users.php"><i class="icon-user"></i></a>
-                <a class="btn btn-large tip-bottom" title="Manage Files"><i class="icon-folder-open"></i></a>
-            </div>
+        <div class="btn-group">
+            <a class="btn btn-large tip-bottom" title="Manage Pages" href="pages.php"><i class="icon-file"></i></a>
+            <a class="btn btn-large tip-bottom" title="Manage Users" href="users.php"><i class="icon-user"></i></a>
+            <a class="btn btn-large tip-bottom" title="Manage Files"><i class="icon-folder-open"></i></a>
         </div>
-        <div id="breadcrumb">
+    </div>
+       <div id="breadcrumb">
             <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a>
             <a href="#" class="current">Dashboard</a>
         </div>
@@ -51,7 +49,6 @@ if ($_SESSION['pseudo'] != NULL) {
     <script src="js/jquery.flot.min.js"></script>
     <script src="js/jquery.flot.resize.min.js"></script>
     <script src="js/jquery.peity.min.js"></script>
-    <script src="js/fullcalendar.min.js"></script>
     <script src="js/unicorn.js"></script>
     <script src="js/unicorn.dashboard.js"></script>
 </body>

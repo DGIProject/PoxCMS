@@ -33,16 +33,14 @@
     <ul>
         <li class="submenu"><a href="pages.php"><i class="icon icon-file"></i>Gestion des pages</a>
         <ul>
-            <li><a href="pages.php">Vue d'enssemble</a></li>
-            <li><a href="add_page.php">Ajouter une page</a></li>
-            <li><a href="del_page.php">Suprimer une page</a></li>
-            <li><a href="edit_page.php">Editer une page</a></li>
+            <li><a href="pages.php"> Vue d'enssemble</a></li>
+            <li><a href="add_page.php"> Ajouter une page</a></li>
+            <li><a href="del_page.php"><i class="icon icon-remove"></i> Suprimer une page</a></li>
+            <li><a href="edit_page.php"><i class="icon icon-edit"></i> Editer une page</a></li>
         </ul>
         </li>
         <li><a href="#">mise en place de base</a></li>
-        <li><a href="edit_page.php"><i class="icon icon-edit"></i>Editer une page</a></li>
         <li><a href="#"><i class="icon icon-list"></i>Element du site</a></li>
-        <li><a href="del_page.php"><i class="icon icon-remove"></i>suprimer une page</a></li>
         <li><a href="add_menu.php"><i class="icon icon-plus"></i>Ajouter un menu</a></li>
         <li><a href="edit_menu.php"><i class="icon icon-edit"></i>editer un menu</a></li>
         <li><a href="def_home.php">Definir la page d'accueille du site</a></li>
