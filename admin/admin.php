@@ -8,10 +8,10 @@ if ($_SESSION['pseudo'] != NULL) {
     <title>Pox panel Admin</title>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="stylesheet" href="css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="css/bootstrap-responsive.min.css"/>
-    <link rel="stylesheet" href="css/unicorn.main.css"/>
-    <link rel="stylesheet" href="css/unicorn.grey.css" class="skin-color"/>
+    <link rel="stylesheet" href="../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../css/bootstrap-responsive.min.css"/>
+    <link rel="stylesheet" href="../css/unicorn.main.css"/>
+    <link rel="stylesheet" href="../css/unicorn.grey.css" class="skin-color"/>
 </head>
 <body>
 <?php include "interface.php"; ?>
@@ -42,15 +42,15 @@ if ($_SESSION['pseudo'] != NULL) {
     </div>
 
 
-    <script src="js/excanvas.min.js"></script>
-    <script src="js/jquery.min.js"></script>
-    <script src="js/jquery.ui.custom.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.flot.min.js"></script>
-    <script src="js/jquery.flot.resize.min.js"></script>
-    <script src="js/jquery.peity.min.js"></script>
-    <script src="js/unicorn.js"></script>
-    <script src="js/unicorn.dashboard.js"></script>
+    <script src="../js/excanvas.min.js"></script>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/jquery.ui.custom.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.flot.min.js"></script>
+    <script src="../js/jquery.flot.resize.min.js"></script>
+    <script src="../js/jquery.peity.min.js"></script>
+    <script src="../js/unicorn.js"></script>
+    <script src="../js/unicorn.dashboard.js"></script>
 </body>
 </html>
 <?php

@@ -17,7 +17,7 @@ if ($_GET['p'] == null)
 <html>
 <head>
     <title>suprimer une page</title>
-    <script type="text/javascript" src="js/ajax.js"></script>
+    <script type="text/javascript" src="../js/ajax.js"></script>
     <script type="text/javascript">
         function visibilite(thingId) {
             var targetElement;
@@ -29,13 +29,13 @@ if ($_GET['p'] == null)
             }
         }
     </script>
-    <link rel="stylesheet" href="css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="css/bootstrap-responsive.min.css"/>
-    <link rel="stylesheet" href="css/uniform.css"/>
-    <link rel="stylesheet" href="css/select2.css"/>
-    <link rel="stylesheet" href="css/unicorn.main.css"/>
-    <link rel="stylesheet" href="css/jquery.gritter.css"/>
-    <link rel="stylesheet" href="css/unicorn.grey.css" class="skin-color"/>
+    <link rel="stylesheet" href="../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../css/bootstrap-responsive.min.css"/>
+    <link rel="stylesheet" href="../css/uniform.css"/>
+    <link rel="stylesheet" href="../css/select2.css"/>
+    <link rel="stylesheet" href="../css/unicorn.main.css"/>
+    <link rel="stylesheet" href="../css/jquery.gritter.css"/>
+    <link rel="stylesheet" href="../css/unicorn.grey.css" class="skin-color"/>
 </head>
 <body>
 <?php include "interface.php"; ?>
@@ -63,10 +63,10 @@ if ($_GET['p'] == null)
 
                 if (isset($_GET['p'])) {
                     ?><br>
-    <img src="images/atten.png" alt="attention"">
+    <img src="../images/atten.png" alt="attention"">
 
         etes vous sure de vouloir suprimer la page :<strong><?php echo $_GET['p']; ?></strong> ?
-    <img src="images/atten.png" alt="attention">
+    <img src="../images/atten.png" alt="attention">
 <br>
     <br><a href="#" onclick="visibilite('page');"> Voir la page</a>
     <br/>
@@ -83,13 +83,13 @@ if ($_GET['p'] == null)
            }
 
                 ?>
-                <script src="js/jquery.min.js"></script>
-                <script src="js/jquery.ui.custom.js"></script>
-                <script src="js/bootstrap.min.js"></script>
-                <script src="js/jquery.uniform.js"></script>
-                <script src="js/select2.min.js"></script>
-                <script src="js/jquery.gritter.min.js"></script>
-                <script src="js/unicorn.js"></script>
+                <script src="../js/jquery.min.js"></script>
+                <script src="../js/jquery.ui.custom.js"></script>
+                <script src="../js/bootstrap.min.js"></script>
+                <script src="../js/jquery.uniform.js"></script>
+                <script src="../js/select2.min.js"></script>
+                <script src="../js/jquery.gritter.min.js"></script>
+                <script src="../js/unicorn.js"></script>
             </div>
         </div>
     </div>

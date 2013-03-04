@@ -13,16 +13,16 @@ include "function.php";
 <!DOCTYPE html>
 <html>
 <head>
-    <script type="text/javascript" src="js/ajax.js"></script>
+    <script type="text/javascript" src="../js/ajax.js"></script>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="stylesheet" href="css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="css/bootstrap-responsive.min.css"/>
-    <link rel="stylesheet" href="css/uniform.css"/>
-    <link rel="stylesheet" href="css/select2.css"/>
-    <link rel="stylesheet" href="css/unicorn.main.css"/>
-    <link rel="stylesheet" href="css/jquery.gritter.css"/>
-    <link rel="stylesheet" href="css/unicorn.grey.css" class="skin-color"/>
+    <link rel="stylesheet" href="../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../css/bootstrap-responsive.min.css"/>
+    <link rel="stylesheet" href="../css/uniform.css"/>
+    <link rel="stylesheet" href="../css/select2.css"/>
+    <link rel="stylesheet" href="../css/unicorn.main.css"/>
+    <link rel="stylesheet" href="../css/jquery.gritter.css"/>
+    <link rel="stylesheet" href="../css/unicorn.grey.css" class="skin-color"/>
     <script src="../ckeditor/ckeditor.js"></script>
     <title>Editer une page</title>
 </head>
@@ -95,13 +95,13 @@ include "function.php";
         </div>
     </div>
 </div>
-<script src="js/jquery.ui.custom.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery.uniform.js"></script>
-<script src="js/jquery.gritter.min.js"></script>
-<script src="js/select2.min.js"></script>
-<script src="js/unicorn.js"></script>
-<script src="js/unicorn.interface.js"></script>
-<script src="js/unicorn.form_common.js"></script>
+<script src="../js/jquery.ui.custom.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/jquery.uniform.js"></script>
+<script src="../js/jquery.gritter.min.js"></script>
+<script src="../js/select2.min.js"></script>
+<script src="../js/unicorn.js"></script>
+<script src="../js/unicorn.interface.js"></script>
+<script src="../js/unicorn.form_common.js"></script>
 </body>
 </html>

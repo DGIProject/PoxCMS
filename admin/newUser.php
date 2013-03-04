@@ -14,13 +14,13 @@ if ($_GET['add'] == 1) {
     <title>ajout utilisateur</title>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="stylesheet" href="css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="css/bootstrap-responsive.min.css"/>
-    <link rel="stylesheet" href="css/uniform.css"/>
-    <link rel="stylesheet" href="css/select2.css"/>
-    <link rel="stylesheet" href="css/unicorn.main.css"/>
-    <link rel="stylesheet" href="css/jquery.gritter.css"/>
-    <link rel="stylesheet" href="css/unicorn.grey.css" class="skin-color"/>
+    <link rel="stylesheet" href="../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../css/bootstrap-responsive.min.css"/>
+    <link rel="stylesheet" href="../css/uniform.css"/>
+    <link rel="stylesheet" href="../css/select2.css"/>
+    <link rel="stylesheet" href="../css/unicorn.main.css"/>
+    <link rel="stylesheet" href="../css/jquery.gritter.css"/>
+    <link rel="stylesheet" href="../css/unicorn.grey.css" class="skin-color"/>
 </head>
 <body>
 <?php include "interface.php"; ?>
@@ -80,17 +80,17 @@ if ($_GET['add'] == 1) {
 </div>
 
 
-<script src="js/jquery.min.js"></script>
-<script src="js/jquery.ui.custom.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery.uniform.js"></script>
-<script src="js/jquery.gritter.min.js"></script>
-<script src="js/jquery.peity.min.js"></script>
-<script src="js/select2.min.js"></script>
-<script src="js/jquery.validate.js"></script>
-<script src="js/unicorn.js"></script>
-<script src="js/unicorn.form_validation.js"></script>
-<script src="js/unicorn.interface.js"></script>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/jquery.ui.custom.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/jquery.uniform.js"></script>
+<script src="../js/jquery.gritter.min.js"></script>
+<script src="../js/jquery.peity.min.js"></script>
+<script src="../js/select2.min.js"></script>
+<script src="../js/jquery.validate.js"></script>
+<script src="../js/unicorn.js"></script>
+<script src="../js/unicorn.form_validation.js"></script>
+<script src="../js/unicorn.interface.js"></script>
 <?php  if ($_GET['add'] == 1) {
     ?>
 <script type="text/javascript">

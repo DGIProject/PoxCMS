@@ -6,14 +6,14 @@ include "function.php";
 <head>
     <title>User Lise - PoxAdmin</title>
     <meta charset="UTF-8"/>
-    <script type="text/javascript" src="js/ajax.js"></script>
+    <script type="text/javascript" src="../js/ajax.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="stylesheet" href="css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="css/bootstrap-responsive.min.css"/>
-    <link rel="stylesheet" href="css/uniform.css"/>
-    <link rel="stylesheet" href="css/select2.css"/>
-    <link rel="stylesheet" href="css/unicorn.main.css"/>
-    <link rel="stylesheet" href="css/unicorn.grey.css" class="skin-color"/>
+    <link rel="stylesheet" href="../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../css/bootstrap-responsive.min.css"/>
+    <link rel="stylesheet" href="../css/uniform.css"/>
+    <link rel="stylesheet" href="../css/select2.css"/>
+    <link rel="stylesheet" href="../css/unicorn.main.css"/>
+    <link rel="stylesheet" href="../css/unicorn.grey.css" class="skin-color"/>
 </head>
 <body>
 <?php include "interface.php"; ?>
@@ -65,7 +65,7 @@ include "function.php";
                             </div>
                             <div class="modal-body">
                                 <div id="returne">
-                                    <center><img src="../installation/images/loading4.gif"></center>
+                                    <center><img src="../images/loading4.gif"></center>
                                 </div>
                             </div>
                         </div>
@@ -77,14 +77,14 @@ include "function.php";
 
 </div>
 
-<script src="js/jquery.min.js"></script>
-<script src="js/jquery.ui.custom.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery.uniform.js"></script>
-<script src="js/select2.min.js"></script>
-<script src="js/jquery.dataTables.min.js"></script>
-<script src="js/unicorn.js"></script>
-<script src="js/unicorn.tables.js"></script>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/jquery.ui.custom.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/jquery.uniform.js"></script>
+<script src="../js/select2.min.js"></script>
+<script src="../js/jquery.dataTables.min.js"></script>
+<script src="../js/unicorn.js"></script>
+<script src="../js/unicorn.tables.js"></script>
 
 </body>
 </html>

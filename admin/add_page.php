@@ -13,17 +13,17 @@ if ($_SESSION['pseudo'] != NULL) {
 <!DOCTYPE html>
 <html>
 <head>
-    <script type="text/javascript" src="js/ajax.js"></script>
+    <script type="text/javascript" src="../js/ajax.js"></script>
     <title>Ajouter une page - PoxAdmin</title>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="stylesheet" href="css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="css/bootstrap-responsive.min.css"/>
-    <link rel="stylesheet" href="css/uniform.css"/>
-    <link rel="stylesheet" href="css/select2.css"/>
-    <link rel="stylesheet" href="css/unicorn.main.css"/>
-    <link rel="stylesheet" href="css/jquery.gritter.css"/>
-    <link rel="stylesheet" href="css/unicorn.grey.css" class="skin-color"/>
+    <link rel="stylesheet" href="../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../css/bootstrap-responsive.min.css"/>
+    <link rel="stylesheet" href="../css/uniform.css"/>
+    <link rel="stylesheet" href="../css/select2.css"/>
+    <link rel="stylesheet" href="../css/unicorn.main.css"/>
+    <link rel="stylesheet" href="../css/jquery.gritter.css"/>
+    <link rel="stylesheet" href="../css/unicorn.grey.css" class="skin-color"/>
     <script src="../ckeditor/ckeditor.js"></script>
 </head>
 <body>
@@ -77,14 +77,14 @@ if ($_SESSION['pseudo'] != NULL) {
 
 
 </body>
-<script type="text/javascript" src="js/jquery.min.js"></script>
-<script type="text/javascript" src="js/jquery.ui.custom.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery.gritter.min.js"></script>
-<script src="js/jquery.peity.min.js"></script>
-<script src="js/select2.min.js"></script>
-<script src="js/unicorn.js"></script>
-<script src="js/unicorn.interface.js"></script>
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script type="text/javascript" src="../js/jquery.ui.custom.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/jquery.gritter.min.js"></script>
+<script src="../js/jquery.peity.min.js"></script>
+<script src="../js/select2.min.js"></script>
+<script src="../js/unicorn.js"></script>
+<script src="../js/unicorn.interface.js"></script>
 </html>
 <?php
 } else {

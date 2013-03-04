@@ -48,16 +48,16 @@ else
     <title>Installation - PoxCMS - <?php echo $etape; ?></title>
     <meta charset="utf-8" />
     <script type="text/javascript" src="sql/ajax.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen" />
 <body>
 
 <div id="bloc_etape">
     <ul>
-        <li><?php if ($etape == $etape_1){?><img src="images/current.png"><?php } echo $etape_1; ?></li>
-        <li><?php if ($etape == $etape_2){?><img src="images/current.png"><?php } echo $etape_2; ?></li>
-        <li><?php if ($etape == $etape_3){?><img src="images/current.png"><?php } echo $etape_3; ?></li>
-        <li><?php if ($etape == $etape_4){?><img src="images/current.png"><?php } echo $etape_4; ?></li>
-        <li><?php if ($etape == $etape_5){?><img src="images/current.png"><?php } echo $etape_5; ?></li>
+        <li><?php if ($etape == $etape_1){?><img src="../images/current.png"><?php } echo $etape_1; ?></li>
+        <li><?php if ($etape == $etape_2){?><img src="../images/current.png"><?php } echo $etape_2; ?></li>
+        <li><?php if ($etape == $etape_3){?><img src="../images/current.png"><?php } echo $etape_3; ?></li>
+        <li><?php if ($etape == $etape_4){?><img src="../images/current.png"><?php } echo $etape_4; ?></li>
+        <li><?php if ($etape == $etape_5){?><img src="../images/current.png"><?php } echo $etape_5; ?></li>
     </ul>
 </div>
 <div id="contenu">
@@ -90,9 +90,9 @@ else
         Nous vous recommandons d'utiliser un base uniquement pour GKwiCMS, mais si vous ne pouvez pas avoir une base dédier uniquement a GKwiCMS nous vous proposerons de mettre un prefixe au taable de données.
         Donc comme nous le disons un peut plus haut vous devez entrer vos identifiant de base de données.
         <form method="post" action="" onsubmit="signin(this.action.value,this.hote.value,this.ident.value, this.psw.value, this.bdd.value);return false" name="bdd">
-            <div id="erreur"style="display: none;"><img src="images/erreur.png" alt="">Impossible de se connecter a la base de données. Verrifiez les identifiant que vous avez fournit !</div>
-            <div id="ok"style="display: none;"><img src="images/valide.png" name="valid" alt="ico-valid-bdd"> Connexion établie vous pouvez continuer <br></div>
-            <div id="msg3" style="display: none;"><img src="images/loading4.gif"></div>
+            <div id="erreur"style="display: none;"><img src="../images/erreur.png" alt="">Impossible de se connecter a la base de données. Verrifiez les identifiant que vous avez fournit !</div>
+            <div id="ok"style="display: none;"><img src="../images/valide.png" name="valid" alt="ico-valid-bdd"> Connexion établie vous pouvez continuer <br></div>
+            <div id="msg3" style="display: none;"><img src="../images/loading4.gif"></div>
 
             <label for="hote">hote : </label><input type="text" name="hote" id="hote"><br>
             <label for="ident"> Identfiant :</label><input type="text" id="ident" name="ident"> <br>
@@ -115,9 +115,9 @@ else
             Maintenant que la base de donées est prete nous devons installer tous les table qui seront necessaire au bon fonctionnement de GKwiCMS.
             pour cela cliquez sur le bouton "Installer les données de base" pour preparer la base de donnees.
         <br><form method="post" action="" onsubmit="setdbd(this.action.value);return false" name="bdd_data">
-                <div id="erreur1"style="display: none;"><img src="images/erreur.png" alt="">Impossible de se connecter a la base de données. Verrifiez les identifiant que vous avez fournit !</div>
-                <div id="ok1"style="display: none;"><img src="images/valide.png" name="valid" alt="ico-valid-bdd"> Connexion établie vous pouvez continuer <br></div>
-                <div id="msg31" style="display: none;"><img src="images/loading4.gif"></div>
+                <div id="erreur1"style="display: none;"><img src="../images/erreur.png" alt="">Impossible de se connecter a la base de données. Verrifiez les identifiant que vous avez fournit !</div>
+                <div id="ok1"style="display: none;"><img src="../images/valide.png" name="valid" alt="ico-valid-bdd"> Connexion établie vous pouvez continuer <br></div>
+                <div id="msg31" style="display: none;"><img src="../images/loading4.gif"></div>
                 <input type="hidden" name="action" value="setbdd">
                 <input type="submit" value="Installer les données de base" onclick="javascript:document.getElementById('msg31').style.display='';document.getElementById('ok1').style.display='none';document.getElementById('erreur1').style.display='none';">
             </form>
@@ -159,14 +159,14 @@ else
 
             <center>
 
-                <img src="images/valid_end.png" alt="valide" ><br>
+                <img src="../images/valid_end.png" alt="valide" ><br>
                 l'instalation est maintenant terminé. il ne vous reste q'une chose a faire:
                 vous devez suprimer le dossier instalation. car sinon lorsque q'un client se connectera sur votre site
                 il tombera sur la page d'instalation lui disant que le site est installer et qu'il faut suprimer le dossier.
 
                 <br><br>Nous vous invitons a aller sur l'interface d'administration afin de commencer vos page et bien d'autre.
                 <a href="../admin/">aller a l'interface d'admonistration</a>
-                <br><img src="images/atten.png" alt="attention">
+                <br><img src="../images/atten.png" alt="attention">
                 avant de cliquer sur le lien assurez vous de bien avoir suprimer le dossier d'installation.
                 <br> vous ne pourez pas vous connectez dans l'interface d'administration si se dossierr n'est suprimer.<br>
             </center>

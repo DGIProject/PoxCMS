@@ -17,13 +17,13 @@ if (isset($_POST['ident_utilisateur']) AND isset($_POST['pass_utilisateur'])) {
     <title>page d'administration - Connection</title>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="stylesheet" href="css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="css/bootstrap-responsive.min.css"/>
-    <link rel="stylesheet" href="css/unicorn.login.css"/>
+    <link rel="stylesheet" href="../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../css/bootstrap-responsive.min.css"/>
+    <link rel="stylesheet" href="../css/unicorn.login.css"/>
 </head>
 <body>
 <div id="logo">
-    <img src="img/logo.png" alt=""/>
+    <img src="../img/logo.png" alt=""/>
 </div>
 <div id="loginbox">
     <form id="loginform" class="form-vertical" method="POST" action="">
@@ -77,8 +77,8 @@ if (isset($_POST['ident_utilisateur']) AND isset($_POST['pass_utilisateur'])) {
 
 </div>
 
-<script src="js/jquery.min.js"></script>
-<script src="js/unicorn.login.js"></script>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/unicorn.login.js"></script>
 
 
 </body>

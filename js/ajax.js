@@ -90,7 +90,7 @@ function confirmEdit(page, content)
 }
 function preview(page)
 {
-    document.getElementById('returne').innerHTML ='<center><img src="../installation/images/loading4.gif"></center>';
+    document.getElementById('returne').innerHTML ='<center><img src="../images/loading4.gif"></center>';
     var OAjax;
     if (window.XMLHttpRequest) OAjax = new XMLHttpRequest();
     else if (window.ActiveXObject) OAjax = new ActiveXObject('Microsoft.XMLHTTP');
