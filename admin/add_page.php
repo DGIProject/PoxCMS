@@ -24,13 +24,13 @@ if ($_SESSION['pseudo'] != NULL) {
     <link rel="stylesheet" href="css/unicorn.main.css"/>
     <link rel="stylesheet" href="css/jquery.gritter.css"/>
     <link rel="stylesheet" href="css/unicorn.grey.css" class="skin-color"/>
+    <script src="../ckeditor/ckeditor.js"></script>
 </head>
 <body>
     <?php include "interface.php"; ?>
 <div id="content">
     <div id="content-header">
         <h1>Dashboard</h1>
-
         <div class="btn-group">
             <a class="btn btn-large tip-bottom" title="Manage Pages" href="pages.php"><i class="icon-file"></i></a>
             <a class="btn btn-large tip-bottom" title="Manage Users" href="users.php"><i class="icon-user"></i></a>
@@ -60,7 +60,7 @@ if ($_SESSION['pseudo'] != NULL) {
                         <label class="control-label">Contenu de la page</label>
 
                         <div class="controls">
-                            <textarea name="content" id="content1">
+                            <textarea name="content" class="ckeditor" id="content1">
                                 taper votre texte ici et utilisez les outil qui sont a votre dispositions !
                             </textarea>
                         </div>
@@ -77,7 +77,8 @@ if ($_SESSION['pseudo'] != NULL) {
 
 
 </body>
-
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.ui.custom.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery.gritter.min.js"></script>
 <script src="js/jquery.peity.min.js"></script>

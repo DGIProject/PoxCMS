@@ -23,6 +23,7 @@ include "function.php";
     <link rel="stylesheet" href="css/unicorn.main.css"/>
     <link rel="stylesheet" href="css/jquery.gritter.css"/>
     <link rel="stylesheet" href="css/unicorn.grey.css" class="skin-color"/>
+    <script src="../ckeditor/ckeditor.js"></script>
     <title>Editer une page</title>
 </head>
 <body>
@@ -78,7 +79,7 @@ include "function.php";
                     <form action="save_edited_file.php"
                           onsubmit="confirmEdit(this.selected1.value, this.content1.value); return false;"
                           method="post">
-                        <textarea id="content1" name="content1">
+                        <textarea id="ckeditor"  class="ckeditor" name="content1">
                             <?php
                             echo load_page($_GET['p']);
                             ?>
