@@ -7,6 +7,28 @@ include 'function.php';
 if ($_GET['add'] == 1) {
     add_user($_POST['username'], $_POST['password1'], $_POST['email']);
 }
+elseif ($_GET['add'] == 2){
+    update_user($_POST['username'], $_POST['password1'], $_POST['email']);
+}
+else if ( $_GET['a'] == "edit")
+{
+    if ( $_GET['id'] != null)
+    {
+        $info = get_user_info_by_id($_GET['id']);
+        foreach ($info as $infouser)
+        {
+            $pseudo = $infouser['pseudo'];
+            $email = $infouser['email'];
+        }
+
+    }
+    else
+    {
+        echo '<script type="text/javascript">window.location="admin.php"</script>';
+    }
+
+
+}
 ?>
 
 <html>
@@ -41,19 +63,19 @@ if ($_GET['add'] == 1) {
     <div class="container-fluid">
         <div class="row-fluid">
             <div class="span12">
-                <form class="form-horizontal" method="post" action="?add=1" name="Newuser" id="NewUser_validate">
+                <form class="form-horizontal" method="post" action="?<?php if ($_GET['a'] != null) { echo 'add=2'; }else { echo 'add=1'; }?>" name="Newuser" id="NewUser_validate">
                     <div class="control-group">
                         <label class="control-label">Nom d'utilisateur</label>
 
                         <div class="controls">
-                            <input type="text" name="username" id="username">
+                            <input type="text" name="username" id="username" value="<?php echo $pseudo ; ?>">
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label">Email</label>
 
                         <div class="controls">
-                            <input type="text" name="email" id="email">
+                            <input type="text" name="email" id="email" value="<?php echo $email ; ?>">
                         </div>
                     </div>
                     <div class="control-group">
@@ -91,7 +113,7 @@ if ($_GET['add'] == 1) {
 <script src="../js/unicorn.js"></script>
 <script src="../js/unicorn.form_validation.js"></script>
 <script src="../js/unicorn.interface.js"></script>
-<?php  if ($_GET['add'] == 1) {
+<?php  if ($_GET['add'] == 1 || $_GET['add'] == 2) {
     ?>
 <script type="text/javascript">
     $.gritter.add({

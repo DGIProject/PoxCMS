@@ -37,7 +37,7 @@ if ($_SESSION['pseudo'] == null) {
     <div class="container-fluid">
         <div class="row-fluid">
             <div class="span12">
-                <a href="newUser.php.php" class="btn btn-success"><i class="icon-plus-sign"></i> Ajouter un utilisateur</a>
+                <a href="newUser.php" class="btn btn-success"><i class="icon-plus-sign"></i> Ajouter un utilisateur</a>
 
                 <div class="widget-box">
                     <div class="widget-title">
@@ -57,7 +57,7 @@ if ($_SESSION['pseudo'] == null) {
                             <tbody><?php
                             $list = get_user_list();
                             foreach ($list as $users) {
-                                echo '<tr><td>' . $users['pseudo'] . '</td><td>' . $users['email'] . '</td><td>' . $users['ran'] . '</td><td><a href="#' . $users['id'] . '" class="btn btn-danger"><i class="icon-remove"></i>Suprimer</a><a href="#' . $users['id'] . '" class="btn btn-info"><i class="icon-pencil"></i>Editer</a></td></tr>';
+                                echo '<tr><td>' . $users['pseudo'] . '</td><td>' . $users['email'] . '</td><td>' . $users['ran'] . '</td><td><a href="#' . $users['id'] . '" class="btn btn-danger"><i class="icon-remove"></i>Suprimer</a><a href="newUser.php?a=edit&id=' . $users['id'] . '" class="btn btn-info"><i class="icon-pencil"></i>Editer</a></td></tr>';
                             } ?>
                             </tbody>
                         </table>

@@ -150,3 +150,30 @@ function get_user_list()
     $liste_users = $req->fetchAll();
     return $liste_users;
 }
+function get_user_info_by_id($id)
+{
+    $bdd = bdd_conect();
+    $req = $bdd->prepare("SELECT * FROM users WHERE id=:id");
+    $req->bindParam(':id', $id);
+    $req->execute();
+    $user_info = $req->fetchAll();
+    return $user_info;
+}
+function update_user($username, $pass, $email)
+{
+
+    $bdd = bdd_conect();
+    if ($pass = null)
+    {
+        $req = $bdd->prepare("UPDATE users SET email=:email and pseudo=:pseudo");
+        $passh = sha1($pass);
+        $req->bindParam(':mdp', $passh);
+    }
+    else
+    {
+        $req = $bdd->prepare("UPDATE users SET mdp=:mdp and email=:email and pseudo=:pseudo");
+    }
+    $req->bindParam(':pseudo', $username);
+    $req->bindParam(':email', $email);
+    $req->execute();
+}
