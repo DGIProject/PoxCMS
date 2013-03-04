@@ -164,7 +164,7 @@ function update_user($username, $pass, $email)
 
     $bdd = bdd_conect();
     if ($pass != null)
-    {
+    { 
         $req = $bdd->prepare("UPDATE users SET mdp=:mdp and email=:email and pseudo=:pseudo");
         $passh = sha1($pass);
         $req->bindParam(':mdp', $passh);
