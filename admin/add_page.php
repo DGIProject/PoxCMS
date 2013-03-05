@@ -83,9 +83,7 @@ if ($_SESSION['pseudo'] != NULL) {
 <script src="../js/unicorn.js"></script>
 <script src="../ckeditor/ckeditor.js"></script>
 <script type="text/javascript">
-    var testeditor =  CKEDITOR.replace( 'ckeditor', {
-        filebrowserBrowseUrl : '../elfinder/elfinder.html'
-    } );
+    var testeditor =  CKEDITOR.replace( 'ckeditor');
 </script>
 </html>
 <?php
