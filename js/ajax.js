@@ -32,7 +32,7 @@ function confirmAdding(content,titre)
         }
     }
     OAjax.setRequestHeader('Content-type','application/x-www-form-urlencoded');
-    OAjax.send('content='+content +'&titre='+titre);
+    OAjax.send('content1='+content +'&titre='+titre);
 }
 function deletepage(page)
 {
@@ -65,6 +65,7 @@ function deletepage(page)
 }
 function confirmEdit(page, content)
 {
+    alert(content);
     var OAjax;
     if (window.XMLHttpRequest) OAjax = new XMLHttpRequest();
     else if (window.ActiveXObject) OAjax = new ActiveXObject('Microsoft.XMLHTTP');
@@ -85,6 +86,15 @@ function confirmEdit(page, content)
                     var obj = 'window.location.replace("pages.php");';
                     setTimeout(obj,2000);
 
+                }
+                else
+                {
+                    $.gritter.add({
+                        title:	'Erreur !',
+                        text:	OAjax.responseText,
+                        image: 	'../img/valide.png',
+                        sticky: false
+                    });
                 }
 
             }

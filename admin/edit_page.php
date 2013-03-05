@@ -23,7 +23,6 @@ include "function.php";
     <link rel="stylesheet" href="../css/unicorn.main.css"/>
     <link rel="stylesheet" href="../css/jquery.gritter.css"/>
     <link rel="stylesheet" href="../css/unicorn.grey.css" class="skin-color"/>
-    <script src="../ckeditor/ckeditor.js"></script>
     <title>Editer une page</title>
 </head>
 <body>
@@ -59,7 +58,7 @@ include "function.php";
 
                             <div class="controls">
                                 <select onchange="document.choose.submit()" name="p">
-                                    <option>--</option>
+                                    <option>------------------</option>
                                     <?php
                                     $list = get_liste_page();
                                     foreach ($list as $pagename) {
@@ -76,10 +75,8 @@ include "function.php";
                 if (isset($_GET['p'])) {
                     echo $_GET['p'] . ' :';
                     ?>
-                    <form action="save_edited_file.php"
-                          onsubmit="confirmEdit(this.selected1.value, this.content1.value); return false;"
-                          method="post">
-                        <textarea id="ckeditor"  class="ckeditor" name="content1">
+                    <form action="save_edited_file.php" method="post" onsubmit="confirmEdit(this.selected1.value, testeditor.getData()); return false;">
+                        <textarea id="content1" name="content1">
                             <?php
                             echo load_page($_GET['p']);
                             ?>
@@ -95,13 +92,17 @@ include "function.php";
         </div>
     </div>
 </div>
+<script src="../js/jquery.min.js"></script>
 <script src="../js/jquery.ui.custom.js"></script>
 <script src="../js/bootstrap.min.js"></script>
 <script src="../js/jquery.uniform.js"></script>
 <script src="../js/jquery.gritter.min.js"></script>
 <script src="../js/select2.min.js"></script>
 <script src="../js/unicorn.js"></script>
-<script src="../js/unicorn.interface.js"></script>
 <script src="../js/unicorn.form_common.js"></script>
+<script src="../ckeditor/ckeditor.js"></script>
+<script type="text/javascript">
+   var testeditor =  CKEDITOR.replace( 'content1' );
+</script>
 </body>
 </html>

@@ -9,8 +9,8 @@
 include ("function.php");
 if ($_SESSION['pseudo'] != NULL) {
 
-    if (isset($_POST['content']) AND isset($_POST['titre'])) {
-        $retour = save_to_file($_POST['titre'], $_POST['content']);
+    if (isset($_POST['content1']) AND isset($_POST['titre'])) {
+        $retour = save_to_file($_POST['titre'], $_POST['content1']);
         echo $retour;
 
     }

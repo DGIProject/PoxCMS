@@ -31,7 +31,7 @@
 <div id="sidebar">
     <a href="#" class="visible-phone"><i class="icon icon-home"></i> Dashboard</a>
     <ul>
-        <li class="submenu"><a href="pages.php"><i class="icon icon-file"></i>Gestion des pages</a>
+        <li class="submenu"><a href="#"><i class="icon icon-file"></i>Gestion des pages</a>
         <ul>
             <li><a href="pages.php"> Vue d'enssemble</a></li>
             <li><a href="add_page.php"> Ajouter une page</a></li>

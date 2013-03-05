@@ -14,6 +14,10 @@ if ($_SESSION['pseudo'] != NULL) {
         $retour = save_to_file($_POST['selected1'], $_POST['content1']);
         echo $retour;
     }
+    else
+    {
+        echo 'true';
+    }
 } else {
     echo '<script type="text/javascript">window.location="index.php"</script>';
 }

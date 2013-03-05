@@ -24,7 +24,6 @@ if ($_SESSION['pseudo'] != NULL) {
     <link rel="stylesheet" href="../css/unicorn.main.css"/>
     <link rel="stylesheet" href="../css/jquery.gritter.css"/>
     <link rel="stylesheet" href="../css/unicorn.grey.css" class="skin-color"/>
-    <script src="../ckeditor/ckeditor.js"></script>
 </head>
 <body>
     <?php include "interface.php"; ?>
@@ -48,7 +47,7 @@ if ($_SESSION['pseudo'] != NULL) {
                 texte enrichi.<br/>
 
                 <form class="form-horizontal" method="post"
-                      onsubmit="confirmAdding(this.content.value, this.titre.value); return false;">
+                      onsubmit="confirmAdding(testeditor.getData(), this.titre.value); return false;">
                     <div class="control-group">
                         <label class="control-label">Titre de la page</label>
 
@@ -60,8 +59,7 @@ if ($_SESSION['pseudo'] != NULL) {
                         <label class="control-label">Contenu de la page</label>
 
                         <div class="controls">
-                            <textarea name="content" class="ckeditor" id="content1">
-                                taper votre texte ici et utilisez les outil qui sont a votre dispositions !
+                            <textarea id="ckeditor"  name="content1">
                             </textarea>
                         </div>
                     </div>
@@ -77,14 +75,16 @@ if ($_SESSION['pseudo'] != NULL) {
 
 
 </body>
-<script type="text/javascript" src="../js/jquery.min.js"></script>
-<script type="text/javascript" src="../js/jquery.ui.custom.js"></script>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/jquery.ui.custom.js"></script>
 <script src="../js/bootstrap.min.js"></script>
 <script src="../js/jquery.gritter.min.js"></script>
-<script src="../js/jquery.peity.min.js"></script>
 <script src="../js/select2.min.js"></script>
 <script src="../js/unicorn.js"></script>
-<script src="../js/unicorn.interface.js"></script>
+<script src="../ckeditor/ckeditor.js"></script>
+<script type="text/javascript">
+    var testeditor =  CKEDITOR.replace( 'ckeditor' );
+</script>
 </html>
 <?php
 } else {
