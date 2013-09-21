@@ -24,7 +24,7 @@ include "function.php";
         <div class="btn-group">
             <a class="btn btn-large tip-bottom" href="pages.php" title="Manage Pages"><i class="icon-file"></i></a>
             <a class="btn btn-large tip-bottom" title="Manage Users" href="users.php"><i class="icon-user"></i></a>
-            <a class="btn btn-large tip-bottom" title="Manage Files" href="filemanagment.php"><i class="icon-folder-open"></i></a>
+            <a class="btn btn-large tip-bottom" title="Manage Files"><i class="icon-folder-open"></i></a>
         </div>
     </div>
     <div id="breadcrumb">

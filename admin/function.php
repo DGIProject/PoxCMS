@@ -58,7 +58,7 @@ function save_to_file($titre, $texte)
 
     if (fputs($fichier_conf, $texte)) {
         save_file_to_bdd($file_name_ex, $titre);
-        return "votre page est disponible ici :" . $texte;
+        return "votre page est disponible ici :" . $file_name;
     } else {
         return false;
     }
@@ -127,7 +127,7 @@ function def_home_page($page)
     $req->execute(array(
         'link' => $link
     ));
-
+    return true;
 }
 
 function add_user($name, $pass, $email)
@@ -176,4 +176,321 @@ function update_user($username, $pass, $email)
     $req->bindParam(':pseudo', $username);
     $req->bindParam(':email', $email);
     $req->execute();
+}
+function get_contact_mails()
+{
+    $bdd = bdd_conect();
+
+    $req = $bdd->prepare('SELECT * FROM users ORDER BY id') or die(mysql_error());
+    $req->execute();
+
+    while ($donnees = $req->fetch())
+    {
+        echo '<option>' . $donnees['pseudo'] . '</option>';
+    }
+
+    $req->closeCursor();
+}
+
+function get_mails($page)
+{
+    $bdd = bdd_conect();
+
+    $req = $bdd->prepare('SELECT COUNT(*) AS id FROM mails WHERE receiver = :receiver OR sender = :sender AND id_answer = NULL ORDER BY id DESC') or die(mysql_error());
+    $req->execute(array('receiver' => $_SESSION['pseudo'],
+        'sender' => $_SESSION['pseudo']));
+
+    while ($donnees = $req->fetch())
+    {
+        $total = $donnees['id'];
+    }
+
+    $messagesParPage=10;
+    $nombreDePages=ceil ($total/$messagesParPage);
+
+    if ($page)
+    {
+        $pageActuelle=intval ($page);
+
+        if ($pageActuelle>$nombreDePages)
+        {
+            $pageActuelle=$nombreDePages;
+        }
+    }
+    else
+    {
+        $pageActuelle=1;
+    }
+
+    $premiereEntree=($pageActuelle-1)*$messagesParPage;
+
+    $req = $bdd->prepare('SELECT * FROM mails WHERE receiver = :receiver OR sender = :sender ORDER BY id DESC LIMIT '.$premiereEntree.', '.$messagesParPage.'') or die(mysql_error());
+    $req->execute(array('receiver' => $_SESSION['pseudo'],
+        'sender' => $_SESSION['pseudo']));
+
+    echo '<table id="listmails" class="table table-bordered" >
+            <thead>
+                <tr>
+                    <th>Sender</th>
+                    <th>Object</th>
+                    <th>date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>';
+
+    while ($donnees = $req->fetch())
+    {
+        $date = $donnees['date'];
+        $date = date("d.m.Y H:i", $date);
+
+        if($donnees['id_answer'] == NULL)
+        {
+            if($donnees['sender'] != $_SESSION['pseudo'] && $donnees['read_mail'] != '1')
+            {
+                echo '<tr class="success" id="'.$donnees["id"].'">';
+            }
+            else
+            {
+                echo '<tr id="'.$donnees["id"].'">';
+            }
+
+            echo '<td><a href="?id=' . $donnees['id'] . '" class="btn" style="width: 200px;">' . $donnees['sender'] . '</a></td>
+                  <td>' . $donnees['object'] . '</td>
+                  <td>' . $date . '</td>
+                  <td>
+                        <button type="button" onclick="deleteThis(' . $donnees['id'] .');"class="btn"><i class="icon-remove"></i></button>
+                  </td>
+                  </tr>';
+        }
+    }
+
+    echo '</tbody></table>';
+
+    $req->closeCursor();
+
+    $_SESSION['number_page'] = $nombreDePages;
+    $_SESSION['current_page'] = $pageActuelle;
+
+}
+
+function number_page_mails()
+{
+    $nombreDePages = $_SESSION['number_page'];
+    $pageActuelle = $_SESSION['current_page'];
+
+    echo  '<center><a href="?type=mails" class="btn"><i class="icon-refresh"></i></a><div class="pagination">
+  <ul><li><a href="?page=1">befor</a></li>';
+    for ($i=1; $i<=$nombreDePages; $i++)
+    {
+        if ($i==$pageActuelle)
+        {
+            echo  '<li class="active"><a>'.$i.'</a></li>';
+        }
+        else  //Sinon...
+        {
+            echo  '<li><a href="?page=' . $i . '">'.$i.'</a></li>';
+        }
+    }
+    $pageend = $i - 1;
+    echo  '<li><a href="?page=' . $pageend . '">Next</a></li></ul>
+           </div></center>';
+}
+
+function get_number_mails()
+{
+    $bdd = bdd_conect();
+
+    $req = $bdd->prepare('SELECT * FROM mails WHERE receiver = ? ORDER BY id') or die(mysql_error());
+    $req->execute(array($_SESSION['pseudo']));
+
+    $number_new_mail = 0;
+
+    while ($donnees = $req->fetch())
+    {
+        if($donnees['read_mail'] != '1')
+        {
+            $number_new_mail++;
+        }
+    }
+
+    $req->closeCursor();
+
+
+      return  $number_new_mail;
+
+
+
+}
+
+function get_info_mails($id)
+{
+    $bdd = bdd_conect();
+
+    $req = $bdd->prepare('SELECT * FROM mails WHERE id = ?') or die(mysql_error());
+    $req->execute(array($id));
+
+    $donnees = $req->fetch();
+
+    if($donnees['sender'] == $_SESSION['pseudo'] || $donnees['receiver'] == $_SESSION['pseudo'])
+    {
+        $date = $donnees['date'];
+        $date = date("d.m.Y H:i", $date);
+
+        echo '<h1>Objet : ' . $donnees['object'] . '</h1>
+              <div id="breadcrumb">
+                <a href="#" title="Go to subject list" class="tip-bottom"><i class="icon-home"></i>Inbox</a>
+                <a href="?id=' . $donnees['id'] . '" class="current">' . $donnees['object'] . '</a>
+              </div>
+              </br>
+              <div class="alert alert-info">
+                <h4>' . $donnees['sender'] . '</h4>
+                ' . $donnees['body'] . '</br><em>Le ' . $date . '</em>
+              </div>';
+
+        get_info_mails_rep($id,$donnees['sender']);
+    }
+    else
+    {
+        echo '<script type="text/javascript">window.top.window.location.href = "?";</script>';
+    }
+
+    $req->closeCursor();
+}
+
+function get_info_mails_rep($id,$contact)
+{
+    $bdd = bdd_conect();
+
+    $req = $bdd->prepare('SELECT * FROM mails WHERE id_answer = ? ORDER BY id') or die(mysql_error());
+    $req->execute(array($id));
+
+    while ($donnees = $req->fetch())
+    {
+        $date = $donnees['date'];
+        $date = date("d.m.Y H:i", $date);
+
+        echo '</br>
+              <h4>' . $donnees['object'] . '</h4>';
+
+        if($donnees['receiver'] == $_SESSION['pseudo'])
+        {
+            if($donnees['read_mail'] != '1')
+            {
+                echo '<div class="alert alert-success">';
+            }
+            else
+            {
+                echo '<div class="well">';
+            }
+        }
+        else
+        {
+            echo '<div class="well">';
+        }
+
+        echo '<h4>' . $donnees['sender'] . '</h4>
+                ' . $donnees['body'] . '</br>
+                <div class="pull-right">
+                    <em>Le ' . $date . '</em>
+                </div>
+              </div>';
+    }
+
+    $req->closeCursor();
+
+    echo '<script src="../ckeditor/ckeditor.js"></script>
+          <form name="formulaire" enctype="application/x-www-form-urlencoded" method="post" action="mailsActions.php?a=answermails">
+                <input type="hidden" name="id" value="' . $id . '">
+                <input type="hidden" name="receiver" value="' . $contact . '"/>
+                <input type="text" name="object" style="width: 900px;" placeholder="Object">
+                <p>
+                    <textarea id="editor1" name="body"></textarea>
+                    <script type="text/javascript">
+                        CKEDITOR.replace( "editor1" );
+                    </script>
+                </p>
+                <center>
+                    <div class="btn-group">
+                        <input name="Submit" value="Envoyer le message" type="submit" class="btn btn-primary">
+                        <a href="?id=' . $id . '" class="btn"><i class="icon-refresh"></i></a>
+                        <form method="POST" action="mailsActions.php?a=deletemails">
+                        <input type="hidden" name="id" value="' . $id . '"/>
+                        <button type="submit" class="btn"><i class="icon-remove"></i></button>
+                    </form>
+                    </div>
+                </center>
+            </form>';
+
+    get_mail_read($id);
+}
+
+function get_mail_read($id)
+{
+    $bdd = bdd_conect();
+
+    $req = $bdd->prepare('SELECT receiver FROM mails WHERE id = ? ORDER BY id') or die(mysql_error());
+    $req->execute(array($id));
+
+    while ($donnees = $req->fetch())
+    {
+        if($donnees['receiver'] == $_SESSION['pseudo'])
+        {
+            $req = $bdd->prepare('UPDATE mails SET read_mail = "1" WHERE id = ?');
+            $req->execute(array($id));
+        }
+    }
+
+    $req->closeCursor();
+
+    $req = $bdd->prepare('SELECT receiver FROM mails WHERE id_answer = ? ORDER BY id') or die(mysql_error());
+    $req->execute(array($id));
+
+    while ($donnees = $req->fetch())
+    {
+        if($donnees['receiver'] == $_SESSION['pseudo'])
+        {
+            $req = $bdd->prepare('UPDATE mails SET read_mail = "1" WHERE id_answer = ?');
+            $req->execute(array($id));
+        }
+    }
+
+    $req->closeCursor();
+}
+function getTemplate()
+{
+    $bdd = bdd_conect();
+    $req = $bdd->prepare('SELECT * FROM template') or die(mysql_error());
+    $req->execute();
+    $retour = $req->fetchAll();
+    return $retour;
+}
+function testMenu()
+{
+    $bdd = bdd_conect();
+
+    $req = $bdd->prepare('SELECT COUNT(*) as numberofligne FROM menu') or die(mysql_error());
+    $req->execute();
+    $result = $req->fetch();
+    if ($result['numberofligne'] == 0)
+    {
+        return false;
+    }
+    else{
+        return true;
+    }
+}
+function changeTemplate($templateId)
+{
+    $bdd = bdd_conect();
+    $req = $bdd->prepare('UPDATE menu SET template=? WHERE template!= "" ') or die(mysql_error());
+    $req->execute(array($templateId));
+    return true;
+}
+function deleteUser($userId)
+{
+    $bdd = bdd_conect();
+    $req = $bdd->prepare('DELETE FROM users WHERE id=? ') or die(mysql_error());
+    $req->execute(array($userId));
+    return true;
 }

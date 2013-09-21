@@ -53,7 +53,7 @@ else if ( $_GET['a'] == "edit")
         <div class="btn-group">
             <a class="btn btn-large tip-bottom" title="Manage Pages" href="pages.php"><i class="icon-file"></i></a>
             <a class="btn btn-large tip-bottom" title="Manage Users" href="users.php"><i class="icon-user"></i></a>
-            <a class="btn btn-large tip-bottom" title="Manage Files" href="filemanagment.php"><i class="icon-folder-open"></i></a>
+            <a class="btn btn-large tip-bottom" title="Manage Files"><i class="icon-folder-open"></i></a>
         </div>
     </div>
     <div id="breadcrumb">

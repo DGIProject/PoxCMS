@@ -9,12 +9,14 @@
 include "function.php";
 $number_of_occurence = $_POST['numbers'];
 $title = $_POST['title_post'];
+echo 'nombre accuprence : '.$number_of_occurence.'<br>Tiltle :'.$title.'<br>position : '.$_POST['posit'];
 
 $bbd = bdd_conect();
-$req = $bbd->prepare("INSERT into menu(id,title,position) VALUES('',:titre,:posit)");
+$req = $bbd->prepare("INSERT into menu(id,title,position, template) VALUES('',:titre,:posit, :templ)");
 $req->execute(array(
     'titre' => $title,
-    'posit' => $_POST['posit']
+    'posit' => $_POST['posit'],
+    'templ' => $_GET['id']
 ));
 $req = $bbd->prepare("SELECT id from menu WHERE title=:title");
 $req->execute(array(

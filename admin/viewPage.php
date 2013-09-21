@@ -7,6 +7,15 @@
  * To change this template use File | Settings | File Templates.
  */
 include "function.php";
-$pageloaded = load_page($_POST['page']);
+if ($_POST['a'] == 'temp')
+{
+    $pageloaded = load_any_pages($_POST['page']);
+
+}
+else
+{
+    $pageloaded = load_page($_POST['page']);
+
+}
 echo $pageloaded;
 ?>

@@ -9,220 +9,132 @@
 
 include "function.php";
 ?>
+<!DOCTYPE html>
 <html>
 <head>
+    <title>User Lise - PoxAdmin</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../css/bootstrap-responsive.min.css"/>
+    <link rel="stylesheet" href="../css/uniform.css"/>
+    <link rel="stylesheet" href="../css/select2.css"/>
+    <link rel="stylesheet" href="../css/unicorn.main.css"/>
+    <link rel="stylesheet" href="../css/unicorn.grey.css" class="skin-color"/>
+    <link rel="stylesheet" href="../css/jquery.gritter.css">
 </head>
 <body>
-cette page vous permet d'editer vos menu :<br> pour que tous fonctionne bien vous devez choisir le menu que vous voulez
-editer avec le titre/decription que vous avez
-entrer lors de sa creation.<br>
-<?php
-if ($_GET['id'] != NULL) {
-    $bdd = bdd_conect();
-    $req = $bdd->prepare("UPDATE menu SET template=:choosedTemplate WHERE title=:ti");
-    $req->execute(array(
-        'choosedTemplate' => $_GET['id'],
-        'ti' => $_GET['title']
-    ));
-    echo '<script type="text/javascript">window.location="edit_menu.php"</script>';
-}
+<?php include "interface.php"; ?>
 
-?>
-<form name="edit_menu" action="" method="post">
-    <select name="select"><?php
+<div id="content">
+    <div id="content-header">
+        <h1>User List</h1>
 
-        $bdd = bdd_conect();
-        $req = $bdd->prepare("SELECT * FROM menu");
-        $req->execute();
-        $rep = $req->fetchAll();
-        foreach ($rep as $done) {
-            if ($done['title'] != NULL) {
+        <div class="btn-group">
+            <a class="btn btn-large tip-bottom" title="Manage Pages" href="pages.php"><i class="icon-file"></i></a>
+            <a class="btn btn-large tip-bottom" title="Manage Users" href="users.php"><i class="icon-user"></i></a>
+            <a class="btn btn-large tip-bottom" title="Manage Files" href="filemanagment.php"><i class="icon-folder-open"></i></a>
+        </div>
+    </div>
+    <div id="breadcrumb">
+        <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a>
+        <a href="#" class="current">User List</a>
+    </div>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12">
 
-                echo "<option>" . $done['title'] . "</option>";
-            }
+                cette page vous permet d'editer vos menu :<br> pour que tous fonctionne bien vous devez choisir le menu que vous voulez
+                editer avec le titre/decription que vous avez
+                entrer lors de sa creation.<br>
+                <form name="edit_menu" action="" method="post">
+                    <select name="select"><?php
 
-        }
-        ?>
-    </select><br>
-    <input type="submit" value="Suivant" name="choosemenu">
-</form>
-<?php
-if (isset($_POST['select'])) {
+                        $bdd = bdd_conect();
+                        $req = $bdd->prepare("SELECT * FROM menu");
+                        $req->execute();
+                        $rep = $req->fetchAll();
+                        foreach ($rep as $done) {
+                            if ($done['title'] != NULL) {
 
-    $req = $bdd->prepare("SELECT * FROM menu WHERE title=:ti");
-    $req->execute(array(
-        'ti' => $_POST['select']
-    ));
-    $rep = $req->fetch();
-    $id = $rep['id'];
-    $req = $bdd->prepare("SELECT * FROM menu WHERE parrent=:id_current");
-    $req->execute(array(
-        'id_current' => $id
-    ));
-    $rep = $req->fetchAll();
+                                echo "<option>" . $done['title'] . "</option>";
+                            }
 
-    ?>
-<br>
-<p>
-    vous pouvez editer les lien de votre menu depuis cette page mais aussi choisir le template que vous voulez.
-    <br>
-<form action="" method="get">
-    <select onchange="
-            if (this.selectedIndex == 0)
-            {
-                document.getElementById('preview').src= '../template/menu/horis/dolphinmenu/';
-                document.getElementById('CHt').value = this.selectedIndex;
-            }
-            else if (this.selectedIndex == 1)
-            {
-                document.getElementById('preview').src= '../template/menu/horis/horizontalderoulant1/';
-                document.getElementById('CHt').value = this.selectedIndex;
+                        }
+                        ?>
+                    </select><br><br>
+                    <input type="submit" value="Suivant" name="choosemenu" class="btn"><br>
+                    <br>
+                </form>
+                <?php
+                if (isset($_POST['select'])) {
 
-            }
-            else if (this.selectedIndex == 2)
-            {
-                document.getElementById('preview').src= '../template/menu/horis/saturday/';
-                document.getElementById('CHt').value = this.selectedIndex;
+                    $req = $bdd->prepare("SELECT * FROM menu WHERE title=:ti");
+                    $req->execute(array(
+                        'ti' => $_POST['select']
+                    ));
+                    $rep = $req->fetch();
+                    $id = $rep['id'];
+                    $req = $bdd->prepare("SELECT * FROM menu WHERE parrent=:id_current");
+                    $req->execute(array(
+                        'id_current' => $id
+                    ));
+                    $rep = $req->fetchAll();
 
-            }else if (this.selectedIndex == 3)
-            {
-                document.getElementById('CHt').value = this.selectedIndex;
-                document.getElementById('preview').src= '../template/menu/horis/simple-menu/';
+                    ?>
+                    <form method="post" action="save_edited_menu.php">
+                        <table class="table">
+                            <tr>
+                                <td><b>Elements</b></td>
+                                <?php
+                                $i2 = 0;
+                                foreach ($rep as $done) {
+                                    echo '<td>' . $done['input'] . '</td><input type="hidden" name="input' . $i2 . '" value="' . $done['input'] . '">';
+                                    $i2++;
+                                }
+                                ?>
+                            </tr>
+                            <tr>
+                                <td><b>pages</b></td>
+                                <?php
+                                $listepages = get_liste_page();
+                                $i = 0;
+                                foreach ($rep as $done) {
+                                    echo '<td><select name="pageforelement' . $i . '">';
+                                    foreach ($listepages as $value) {
 
-            }else if (this.selectedIndex == 4)
-            {
-                document.getElementById('preview').src= '../template/menu/horis/slate/index.html#B';
-                document.getElementById('CHt').value = this.selectedIndex;
-            }
-			else if (this.selectedIndex == 5)
-            {
-                document.getElementById('preview').src= '../template/menu/horis/slate/index.html#G';
-                document.getElementById('CHt').value = this.selectedIndex;
-            }else if (this.selectedIndex == 6)
-            {
-                document.getElementById('preview').src= '../template/menu/horis/slate/index.html#R';
-                document.getElementById('CHt').value = this.selectedIndex;
-            }else if (this.selectedIndex == 7)
-            {
-                document.getElementById('preview').src= '../template/menu/horis/slate/index.html#V';
-                document.getElementById('CHt').value = this.selectedIndex;
-            }else if (this.selectedIndex == 8)
-            {
-                document.getElementById('CHt').value = this.selectedIndex;
-                document.getElementById('preview').src= '../template/menu/horis/style4/';
+                                        echo '<option>' . $value['titre'] . '</option>';
 
-            }else if (this.selectedIndex == 9)
-            {
-                document.getElementById('CHt').value = this.selectedIndex;
-                document.getElementById('preview').src= '../template/menu/horis/Timeforbed/';
+                                    }
+                                    echo '</select></td>';
+                                    $i++;
+                                }
 
-            }else if (this.selectedIndex == 10)
-            {
-                document.getElementById('CHt').value = this.selectedIndex;
-                document.getElementById('preview').src= '../template/menu/horis/wax/index.html#B';
-            }
-			else if (this.selectedIndex == 11)
-            {
-                document.getElementById('CHt').value = this.selectedIndex;
-                document.getElementById('preview').src= '../template/menu/horis/wax/index.html#G';
-            }
-			else if (this.selectedIndex == 12)
-            {
-                document.getElementById('CHt').value = this.selectedIndex;
-                document.getElementById('preview').src= '../template/menu/horis/wax/index.html#Gr';
-            }
-			else if (this.selectedIndex == 13)
-            {
-                document.getElementById('CHt').value = this.selectedIndex;
-                document.getElementById('preview').src= '../template/menu/horis/wax/index.html#O';
-            }
-			else if (this.selectedIndex == 14)
-            {
-                document.getElementById('CHt').value = this.selectedIndex;
-                document.getElementById('preview').src= '../template/menu/horis/wax/index.html#R';
-            }
-            else if (this.selectedIndex == 15)
-            {
-                document.getElementById('preview').src= '../template/menu/onglet/1/';
-                document.getElementById('CHt').value = this.selectedIndex;
-            }
-            else if (this.selectedIndex == 16)
-            {
-                document.getElementById('preview').src= '../template/menu/onglet/2/';
-                document.getElementById('CHt').value = this.selectedIndex;
-            }
-            else if (this.selectedIndex == 17)
-            {
-                document.getElementById('preview').src= '../template/menu/vertical/1/';
-                document.getElementById('CHt').value = this.selectedIndex;
+                                ?>
+                            </tr>
+                        </table>
+                        <input type="hidden" name="numberofelemt" value="<?php echo $i; ?>"/>
+                        <input type="hidden" name="id" value="<?php echo $id; ?>"/>
+                        <input type="submit" name="save" value="entegistrer les page" class="btn btn-primary"/>
+                    </form>
 
+                <?php } ?>
+            </div>
+        </div>
+    </div>
 
-            }
+</div>
 
-            ">
-        <option>dolphinmenu</option>
-        <option>horizontalderoulant1</option>
-        <option>saturday</option>
-        <option>simple-menu</option>
-        <option>slate Blue</option>
-        <option>slate green</option>
-        <option>slate Red</option>
-        <option>slate Purpule</option>
-        <option>style4</option>
-        <option>Timeforbed</option>
-        <option>wax blue</option>
-        <option>wax green</option>
-        <option>wax grey</option>
-        <option>wax Orange</option>
-        <option>wax Red</option>
-        <option>onglet 1</option>
-        <option>onglet 2</option>
-        <option>vertical 1</option>
-    </select><br>
-    <iframe id="preview" width="700px" height="100px"></iframe>
-    <input type="hidden" value="" id="CHt" name="id">
-    <input type="hidden" name="title" value="<?php echo $_POST['select']; ?>">
-    <br>
-    <input type="submit" value="choisir le template">
-</form>
-<br>
-<form method="post" action="save_edited_menu.php">
-    <table>
-        <tr>
-            <td>Elements</td>
-            <?php
-            $i2 = 0;
-            foreach ($rep as $done) {
-                echo '<td>' . $done['input'] . '</td><input type="hidden" name="input' . $i2 . '" value="' . $done['input'] . '">';
-                $i2++;
-            }
-            ?>
-        </tr>
-        <tr>
-            <td>pages</td>
-            <?php
-            $listepages = get_liste_page();
-            $i = 0;
-            foreach ($rep as $done) {
-                echo '<td><select name="pageforelement' . $i . '">';
-                foreach ($listepages as $value) {
-
-                    echo '<option>' . $value['titre'] . '</option>';
-
-                }
-                echo '</select></td>';
-                $i++;
-            }
-
-            ?>
-        </tr>
-    </table>
-    <input type="hidden" name="numberofelemt" value="<?php echo $i; ?>"/>
-    <input type="hidden" name="id" value="<?php echo $id; ?>"/>
-    <input type="submit" name="save" value="entegistrer les page"/>
-</form>
-
-    <?php } ?>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/jquery.ui.custom.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/jquery.uniform.js"></script>
+<script src="../js/select2.min.js"></script>
+<script src="../js/jquery.dataTables.min.js"></script>
+<script src="../js/unicorn.js"></script>
+<script src="../js/unicorn.tables.js"></script>
+<script src="../js/jquery.gritter.min.js"></script>
+<script src="../js/ajax.js"></script>
 
 </body>
 </html>

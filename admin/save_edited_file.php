@@ -11,6 +11,7 @@ session_start();
 if ($_SESSION['pseudo'] != NULL) {
 
     if (isset($_POST['content1']) AND isset($_POST['selected1'])) {
+        echo utf8_decode($_POST['content1']);
         $retour = save_to_file($_POST['selected1'], $_POST['content1']);
         echo $retour;
     }

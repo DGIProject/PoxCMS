@@ -6,11 +6,11 @@
  * Time: 17:16
  * To change this template use File | Settings | File Templates.
  */
-$etape_1 = "choix de la langue";
-$etape_2 = "configuration de la base de donnée";
-$etape_3 = "configuration partie 2";
-$etape_4 = "creation des identifiant admin";
-$etape_5 = "terminée !";
+$etape_1 = "Départ";
+$etape_2 = "Base de donnée";
+$etape_3 = "Créer les tables";
+$etape_4 = "Identifiants";
+$etape_5 = "Terminé";
 if (isset($_GET['e'])) {
     $etape_recup = $_GET['e'];
     if ($etape_recup == 1) {
@@ -37,11 +37,11 @@ if (isset($_GET['e'])) {
     <meta charset="utf-8"/>
     <script type="text/javascript" src="sql/ajax.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="stylesheet" href="../css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="../css/bootstrap-responsive.min.css"/>
-    <link rel="stylesheet" href="../css/uniform.css"/>
-    <link rel="stylesheet" href="../css/unicorn.main.css"/>
-    <link rel="stylesheet" href="../css/unicorn.grey.css" class="skin-color"/>
+    <link rel="stylesheet" href="../old/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../old/css/bootstrap-responsive.min.css"/>
+    <link rel="stylesheet" href="../old/css/uniform.css"/>
+    <link rel="stylesheet" href="../old/css/unicorn.main.css"/>
+    <link rel="stylesheet" href="../old/css/unicorn.grey.css" class="skin-color"/>
 <body>
 <div id="header">
     <h1><a href="index.php">PoxCMS Admin</a></h1>
@@ -74,48 +74,14 @@ if (isset($_GET['e'])) {
         <div class="row-fluid">
             <div class="span12">
                 <?php
-                if ($etape == $etape_1) {
-                    ?>
+                if ($etape == $etape_1)
+                {
+                    echo '<p>Bonjour et bienvenue sur PoxCMS, il vous permettra de créer votre site simplement avec de nombreux outils. Nous allons démarrer les différentes étapes pour configurer votre CMS. Une base de donnée est nécéssaire.</p><a href="?e=2" class="btn btn-primary btn-large">Démarrer</a>';
+                }
+                elseif ($etape == $etape_2)
+                {
+                    echo '<p>La base de donnée est un des élément principal du CMS puisqu\'elle stocke de nombreuses informations comme les identifiants.</p>'; ?>
 
-                    <p>Bienvenue dans GKwiCMS, c'est un CMS comme tout les autres. Vous pouvez y crer votre site web en
-                        toute simplicité.<br>
-                        Vous pouvez aussi crer votre forum tres simplement. Si vous le souhaitez vous pourrez même avoir
-                        les deux ! un forum et aussi une site web.
-                        Dans cette partie c'est l'heure de la configuration: nous allons commencer par choisir la langue
-                        que souhaitez avoir dans les menu de votre site<br> et dans les menu de la page
-                        d'administration.<br><br>
-                        Dans la partie de droite vous pouvez voir la liste des étape qui vous nous permettre de
-                        configurer votre CMS.<br><br>
-                        l'etape actuel est le choix de la langue : a vous de la choisir tranquillement</p><br><br>
-                    <form method="get" class="form-horizontal" action="?e=2">
-                        <div class="control-group">
-                            <label class="control-label">langue :</label>
-
-                            <div class="controls">
-                                <select name="lang">
-                                    <option>Francais</option>
-                                    <option>English</option>
-                                    <option>Español</option>
-                                </select>
-                            </div>
-                        </div>
-                        <input type="hidden" name="e" value="2">
-
-                        <div class="form-actions">
-                            <input type="submit" class="btn btn-primary" value="suivant">
-                        </div>
-                    </form>
-
-                    <?php
-                } elseif ($etape == $etape_2) {
-                    ?>
-                    Nous allons maintenant configuer la base de donnee.
-                    Pour cela veuillez entrer les identifiant de la base de donnée dans les champs ci-dessous.<br>
-
-                    Nous vous recommandons d'utiliser un base uniquement pour GKwiCMS, mais si vous ne pouvez pas avoir
-                    une base dédier uniquement a GKwiCMS nous vous proposerons de mettre un prefixe au taable de
-                    données.
-                    Donc comme nous le disons un peut plus haut vous devez entrer vos identifiant de base de données.
                     <form method="post" class="form-horizontal" action=""
                           onsubmit="signin(this.action.value,this.hote.value,this.ident.value, this.psw.value, this.bdd.value);return false"
                           name="bdd">
@@ -290,10 +256,10 @@ if (isset($_GET['e'])) {
         </div>
     </div>
 </div>
-<script type="text/javascript" src="../js/jquery.min.js"></script>
-<script type="text/javascript" src="../js/jquery.ui.custom.js"></script>
-<script src="../js/bootstrap.min.js"></script>
-<script src="../js/unicorn.js"></script>
-<script src="../js/unicorn.interface.js"></script>
+<script type="text/javascript" src="../old/js/jquery.min.js"></script>
+<script type="text/javascript" src="../old/js/jquery.ui.custom.js"></script>
+<script src="../old/js/bootstrap.min.js"></script>
+<script src="../old/js/unicorn.js"></script>
+<script src="../old/js/unicorn.interface.js"></script>
 </body>
 </html>

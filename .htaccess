@@ -1,0 +1,35 @@
+Options +FollowSymlinks
+RewriteEngine On
+
+RewriteRule ^admin/admin$ admin.php
+
+RewriteRule ^admin/site/add$ admin.php?a=addSite
+RewriteRule ^admin/site/edit/([0-9]+)$ admin.php?type=editsite&siteId=$1
+RewriteRule ^admin/site/saveedit/([0-9]+)$ admin.php?type=editsite&a=editSite&siteId=$1
+
+RewriteRule ^admin/([0-9]+)/menu$ admin.php?type=menu&siteId=$1
+
+RewriteRule ^admin/([0-9]+)/page$ admin.php?type=page&siteId=$1
+RewriteRule ^admin/([0-9]+)/page/new$ admin.php?type=addpage&siteId=$1
+RewriteRule ^admin/([0-9]+)/page/add$ admin.php?type=addpage&siteId=$1&a=addPage
+RewriteRule ^admin/([0-9]+)/page/edit/([0-9]+)$ admin.php?type=editpage&siteId=$1&pageId=$2
+RewriteRule ^admin/([0-9]+)/page/saveedit/([0-9]+)$ admin.php?type=editpage&siteId=$1&a=editPage&pageId=$2
+RewriteRule ^admin/([0-9]+)/page/delete/([0-9]+)$ admin.php?type=page&siteId=$1&a=deletePage&pageId=$2
+
+RewriteRule ^admin/([0-9]+)/template/list$ admin.php?type=listTemplate&siteId=$1
+RewriteRule ^admin/([0-9]+)/template/set/([0-9]+)$ admin.php?type=listTemplate&siteId=$1&a=setTemplate&templateId=$2
+RewriteRule ^admin/([0-9]+)/template/customise$ admin.php?type=customiseTemplate&siteId=$1
+
+RewriteRule ^admin/([0-9]+)/user$ admin.php?type=user&siteId=$1
+RewriteRule ^admin/([0-9]+)/user/add admin.php?type=user&siteId=$1&a=addUser
+RewriteRule ^admin/([0-9]+)/user/edit/([0-9]+)$ admin.php?type=user&siteId=$1&a=showEditUser&userId=$2
+RewriteRule ^admin/([0-9]+)/user/saveedit/([0-9]+)$ admin.php?type=user&siteId=$1&a=editUser&userId=$2
+RewriteRule ^admin/([0-9]+)/user/delete/([0-9]+)$ admin.php?type=user&siteId=$1&a=deleteUser&userId=$2
+
+RewriteRule ^admin/profile$ admin.php?type=profile
+RewriteRule ^admin/message$ admin.php?type=message
+RewriteRule ^admin/login$ admin.php
+RewriteRule ^admin/logout$ admin.php?a=logout
+
+RewriteRule ^([0-9]+)$ index.php?siteId=$1
+RewriteRule ^([0-9]+)/([a-z0-9]{10,}.html)$ index.php?siteId=$1&pageId=$2

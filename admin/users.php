@@ -16,6 +16,7 @@ if ($_SESSION['pseudo'] == null) {
     <link rel="stylesheet" href="../css/select2.css"/>
     <link rel="stylesheet" href="../css/unicorn.main.css"/>
     <link rel="stylesheet" href="../css/unicorn.grey.css" class="skin-color"/>
+    <link rel="stylesheet" href="../css/jquery.gritter.css">
 </head>
 <body>
 <?php include "interface.php"; ?>
@@ -57,16 +58,26 @@ if ($_SESSION['pseudo'] == null) {
                             <tbody><?php
                             $list = get_user_list();
                             foreach ($list as $users) {
-                                echo '<tr><td>' . $users['pseudo'] . '</td><td>' . $users['email'] . '</td><td>' . $users['ran'] . '</td><td><a href="#' . $users['id'] . '" class="btn btn-danger"><i class="icon-remove"></i>Suprimer</a><a href="newUser.php?a=edit&id=' . $users['id'] . '" class="btn btn-info"><i class="icon-pencil"></i>Editer</a></td></tr>';
+                                echo '<tr><td>' . $users['pseudo'] . '</td><td>' . $users['email'] . '</td><td>' . $users['ran'] . '</td><td><a href="#alertDelete" onclick="deleteavert(\''.$users['id'].'\');" data-toggle="modal" class="btn btn-danger"><i class="icon-remove"></i>Suprimer</a><a href="newUser.php?a=edit&id=' . $users['id'] . '" class="btn btn-info"><i class="icon-pencil"></i>Editer</a></td></tr>';
                             } ?>
                             </tbody>
                         </table>
                     </div>
                 </div>
+                <div id="alertDelete" class="modal hide fade">
+                    <div class="modal-header">
+                        <button data-dismiss="modal" class="close" type="button">×</button>
+                        <h3>Modal header</h3>
+                    </div>
+                    <div class="modal-body">
+                        <div id="returne" class="warning">
+                            <center><img src="../images/loading4.gif"></center>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-
 </div>
 
 <script src="../js/jquery.min.js"></script>
@@ -77,6 +88,8 @@ if ($_SESSION['pseudo'] == null) {
 <script src="../js/jquery.dataTables.min.js"></script>
 <script src="../js/unicorn.js"></script>
 <script src="../js/unicorn.tables.js"></script>
+<script src="../js/jquery.gritter.min.js"></script>
+<script src="../js/ajax.js"></script>
 
 </body>
 </html>
