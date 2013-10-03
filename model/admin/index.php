@@ -5,7 +5,7 @@ function connectionAdmin($username, $password)
 
     if(empty($username) || empty($password))
     {
-        return '<div class="alert alert-error">Vous devez renseigner tout les champs.</div>';
+        return '<div class="alert alert-danger">Vous devez renseigner tout les champs.</div>';
     }
     else
     {
@@ -16,14 +16,14 @@ function connectionAdmin($username, $password)
 
         if($data['exist'] == 0)
         {
-            return '<div class="alert alert-error">Votre pseudo ou mot de passe est incorrect.</div>';
+            return '<div class="alert alert-danger">Votre pseudo ou mot de passe est incorrect.</div>';
         }
         else
         {
             $_SESSION['username'] = $username;
             $_SESSION['email'] = $data['email'];
 
-            header('Location: ../admin/admin');
+            header('Location: ../owner');
         }
 
         $req->closeCursor();

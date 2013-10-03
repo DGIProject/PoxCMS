@@ -3,7 +3,7 @@
 <head>
     <title><?php echo $site['name']; ?> - <?php echo $page['name']; ?></title>
 
-    <base href="http://loquii.alwaysdata.net/other/PoxCMS/">
+    <base href="http://clangue.net/other/PoxCMS/">
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 

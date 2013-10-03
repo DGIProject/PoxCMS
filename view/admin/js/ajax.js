@@ -104,7 +104,6 @@ function confirmEdit(page, content)
 }
 function preview(page, temp)
 {
-    document.getElementById('returne').innerHTML ='<center><img src="images/loading4.gif"></center>';
     var OAjax;
     if (window.XMLHttpRequest) OAjax = new XMLHttpRequest();
     else if (window.ActiveXObject) OAjax = new ActiveXObject('Microsoft.XMLHTTP');
@@ -116,7 +115,7 @@ function preview(page, temp)
             if (document.getElementById)
             {
                 if (OAjax.responseText !='true') {
-                    document.getElementById('returne').innerHTML = OAjax.responseText;
+                    document.getElementById('return').innerHTML = OAjax.responseText;
                 }
 
             }

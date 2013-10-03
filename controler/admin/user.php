@@ -6,11 +6,11 @@ if($_SESSION['username'] != NULL)
 {
     if($_GET['a'] == 'addUser')
     {
-        $resultAddUser = addUser($_POST['username'], $_POST['email'], $_POST['password1'], $_POST['password2'], $_GET['siteId']);
+        $resultAddUser = addUser($_POST['username'], $_POST['email'], $_POST['category'], $_POST['password1'], $_POST['password2'], $_GET['siteId']);
     }
     elseif($_GET['a'] == 'editUser')
     {
-        editUser($_GET['userId'], $_POST['email'], $_POST['password']);
+        editUser($_GET['userId'], $_POST['emailEdit'], $_POST['passwordEdit']);
     }
     elseif($_GET['a'] == 'deleteUser')
     {

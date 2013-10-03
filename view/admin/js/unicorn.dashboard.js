@@ -1,13 +1,14 @@
 /**
  * Unicorn Admin Template
+ * Version 2.1.0
  * Diablo9983 -> diablo9983@gmail.com
 **/
+
 $(document).ready(function(){
 	
-	
-	
-	// === Prepare peity charts === //
-	unicorn.peity();
+
+	// === Prepare sparklines charts === //
+	unicorn.sparkline();
 	
 	// === Prepare the chart data ===/
 	var sin = [], cos = [];
@@ -18,12 +19,13 @@ $(document).ready(function(){
 
 	// === Make chart === //
     var plot = $.plot($(".chart"),
-           [ { data: sin, label: "sin(x)", color: "#BA1E20"}, { data: cos, label: "cos(x)",color: "#459D1C" } ], {
+           [ { data: sin, label: "sin(x)", color: "#4fabd2"}, { data: cos, label: "cos(x)",color: "#459D1C" } ], {
                series: {
                    lines: { show: true },
                    points: { show: true }
                },
-               grid: { hoverable: true, clickable: true },
+               legend: { backgroundOpacity: 0.5 },
+               grid: { hoverable: true, clickable: true, borderColor: "#eeeeee", borderWidth: 1, color: "#AAAAAA" },
                yaxis: { min: -1.6, max: 1.6 }
 		   });
     
@@ -109,47 +111,53 @@ $(document).ready(function(){
 			}
 		]
 	});
+
+
 });
 
 
 unicorn = {
 		// === Peity charts === //
-		peity: function(){		
-			$.fn.peity.defaults.line = {
-				strokeWidth: 1,
-				delimeter: ",",
-				height: 24,
-				max: null,
-				min: 0,
-				width: 50
-			};
-			$.fn.peity.defaults.bar = {
-				delimeter: ",",
-				height: 24,
-				max: null,
-				min: 0,
-				width: 50
-			};
-			$(".peity_line_good span").peity("line", {
-				colour: "#B1FFA9",
-				strokeColour: "#459D1C"
+		sparkline: function(){		
+			$(".sparkline_line_good span").sparkline("html", {
+				type: "line",
+				fillColor: "#B1FFA9",
+				lineColor: "#459D1C",
+				width: "50",
+				height: "24"
 			});
-			$(".peity_line_bad span").peity("line", {
-				colour: "#FFC4C7",
-				strokeColour: "#BA1E20"
+			$(".sparkline_line_bad span").sparkline("html", {
+				type: "line",
+				fillColor: "#FFC4C7",
+				lineColor: "#BA1E20",
+				width: "50",
+				height: "24"
 			});	
-			$(".peity_line_neutral span").peity("line", {
-				colour: "#CCCCCC",
-				strokeColour: "#757575"
+			$(".sparkline_line_neutral span").sparkline("html", {
+				type: "line",
+				fillColor: "#CCCCCC",
+				lineColor: "#757575",
+				width: "50",
+				height: "24"
 			});
-			$(".peity_bar_good span").peity("bar", {
-				colour: "#459D1C"
+			
+			$(".sparkline_bar_good span").sparkline('html',{
+				type: "bar",
+				barColor: "#459D1C",
+				barWidth: "5",
+				height: "24"
 			});
-			$(".peity_bar_bad span").peity("bar", {
-				colour: "#BA1E20"
+			$(".sparkline_bar_bad span").sparkline('html',{
+				type: "bar",
+				barColor: "#BA1E20",
+				barWidth: "5",
+				height: "24"
 			});	
-			$(".peity_bar_neutral span").peity("bar", {
-				colour: "#757575"
+			$(".sparkline_bar_neutral span").sparkline('html',{
+				type: "bar",
+				barColor: "#757575",
+				barWidth: "5",
+				height: "24"
 			});
 		},
 

@@ -1,59 +1,60 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title>PoxCMS - Admin</title>
-    <base href="http://loquii.alwaysdata.net/other/PoxCMS/">
+    <base href="http://clangue.net/other/PoxCMS/">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-    <link rel="stylesheet" href="view/admin/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="view/admin/css/bootstrap-responsive.min.css"/>
-    <link rel="stylesheet" href="view/admin/css/uniform.css"/>
-    <link rel="stylesheet" href="view/admin/css/select2.css"/>
-    <link rel="stylesheet" href="view/admin/css/unicorn.main.css"/>
-    <link rel="stylesheet" href="view/admin/css/unicorn.grey.css" class="skin-color"/>
-    <link rel="stylesheet" href="view/admin/css/jquery.gritter.css">
+    <link rel="stylesheet" href="view/admin/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="view/admin/css/font-awesome.css" />
+    <link rel="stylesheet" href="view/admin/css/fullcalendar.css" />
+    <link rel="stylesheet" href="view/admin/css/jquery.jscrollpane.css" />
+    <link rel="stylesheet" href="view/admin/css/unicorn.css" />
+    <link rel="stylesheet" href="view/admin/css/unicorn.grey.css" class="skin-color" />
 </head>
 <body>
 <div id="header">
-    <h1><a href="admin/admin">PoxCMS Admin</a></h1>
+    <h1><a href="owner">PoxCMS Admin</a></h1>
+    <a id="menu-trigger" href="#"><i class="icon-align-justify"></i></a>
 </div>
-<div id="user-nav" class="navbar navbar-inverse">
-    <ul class="nav btn-group">
-        <li class="btn btn-inverse"><a href="admin/profile"><i class="icon icon-user"></i> <span class="text">Profil</span></a></li>
-        <li class="btn btn-inverse"><a href="admin/message"><i class="icon icon-envelope"></i> <span class="text">Messages</span> <span class="label label-important"><?php echo $numberMessages; ?></span></a></li>
-        <li class="btn btn-inverse"><a href="admin/logout"><i class="icon icon-share-alt"></i> <span class="text">Logout</span></a></li>
+
+<div id="user-nav">
+    <ul class="btn-group">
+        <li class="btn"><a href="owner/profile"><i class="icon icon-user"></i> <span class="text">Profil</span></a></li>
+        <li class="btn"><a href="owner/message"><i class="icon icon-envelope"></i> <span class="text">Messages</span> <span class="label label-important"><?php echo $numberMessages; ?></span></a></li>
+        <li class="btn"><a href="owner/logout"><i class="icon icon-share-alt"></i> <span class="text">Logout</span></a></li>
     </ul>
 </div>
+
 <div id="sidebar">
-    <a href="admin/admin" class="visible-phone"><i class="icon icon-home"></i> Acceuil</a>
     <ul>
-        <li><a href="admin/admin"><i class="icon icon-home"></i> Acceuil</a></li>
+        <li><a href="owner"><i class="icon icon-home"></i> Acceuil</a></li>
         <?php
         foreach($listSites as $site)
         {
-            echo '<li><a href="admin/site/edit/' . $site['id'] . '">' . $site['name'] . '</a></li>
-                  <li><a href="admin/' . $site['id'] . '/menu"><i class="icon icon-edit"></i> Menu</a></li>
-                  <li class="submenu">
-                    <a href="#"><i class="icon icon-file"></i> Page</a>
+            echo '<li><a href="owner/site/edit/' . $site['id'] . '">' . $site['name'] . '</a></li>
+                  <li><a href="owner/' . $site['id'] . '/menu"><i class="icon icon-edit"></i> Menu</a></li>
+                  <li class="submenu active">
+                    <a href="#"><i class="icon icon-file"></i> Page <i class="arrow icon-chevron-right"></i></a>
                     <ul>
-                        <li><a href="admin/' . $site['id'] . '/page/new"><i class="icon icon-plus"></i> Ajouter un page</a></li>
-                        <li><a href="admin/' . $site['id'] . '/page"><i class="icon icon-eye-open"></i> Voir toutes les pages</a></li>
+                        <li class="active"><a href="owner/' . $site['id'] . '/page/new"><i class="icon icon-plus"></i> Ajouter une page</a></li>
+                        <li><a href="owner/' . $site['id'] . '/page"><i class="icon icon-eye-open"></i> Voir toutes les pages</a></li>
                     </ul>
                   </li>
-                  <li><a href="admin/' . $site['id'] . '/template/list"><i class="icon icon-th-list"></i> Style</a></li>
-                  <li><a href="admin/' . $site['id'] . '/user"><i class="icon icon-user"></i> Utilisateurs</a></li>';
+                  <li><a href="owner/' . $site['id'] . '/template/list"><i class="icon icon-th-list"></i> Styles</a></li>
+                  <li><a href="owner/' . $site['id'] . '/user"><i class="icon icon-user"></i> Utilisateurs</a></li>';
         }?>
     </ul>
 </div>
+
 <div id="content">
     <div id="content-header">
         <h1>Ajouter une page</h1>
     </div>
     <div id="breadcrumb">
-        <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a>
-        <a href="#" class="current">Ajouter une page</a>
+        <a href="owner" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Dashboard</a>
+        <a href="owner/<?php echo $siteId; ?>/page/new" class="current">Ajouter une page</a>
     </div>
     <div class="container-fluid">
         <div class="row-fluid">
@@ -103,16 +104,24 @@
         </div>
     </div>
 </div>
+<div class="row">
+    <div id="footer" class="col-xs-12">
+        PoxCMS - 2013 - By <a href="http://dotproject.fr.nf">DotProject</a>
+    </div>
+</div>
 
+<script src="view/admin/js/excanvas.min.js"></script>
 <script src="view/admin/js/jquery.min.js"></script>
-<script src="view/admin/js/jquery.ui.custom.js"></script>
+<script src="view/admin/js/jquery-ui.custom.js"></script>
 <script src="view/admin/js/bootstrap.min.js"></script>
-<script src="view/admin/js/jquery.uniform.js"></script>
-<script src="view/admin/js/select2.min.js"></script>
-<script src="view/admin/js/jquery.dataTables.min.js"></script>
+<script src="view/admin/js/jquery.flot.min.js"></script>
+<script src="view/admin/js/jquery.flot.resize.min.js"></script>
+<script src="view/admin/js/jquery.sparkline.min.js"></script>
+<script src="view/admin/js/fullcalendar.min.js"></script>
+<script src="view/admin/js/jquery.jpanelmenu.min.js"></script>
+<script src="view/admin/js/jquery.nicescroll.min.js"></script>
 <script src="view/admin/js/unicorn.js"></script>
-<script src="view/admin/js/unicorn.tables.js"></script>
-<script src="view/admin/js/jquery.gritter.min.js"></script>
+<script src="view/admin/js/unicorn.dashboard.js"></script>
 <script src="view/admin/js/ajax.js"></script>
 <script src="ckeditor/ckeditor.js"></script>
 <script type="text/javascript">

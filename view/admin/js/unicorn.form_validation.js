@@ -1,14 +1,46 @@
 /**
  * Unicorn Admin Template
+ * Version 2.1.0
  * Diablo9983 -> diablo9983@gmail.com
 **/
+
 $(document).ready(function(){
 	
-	$('input[type=checkbox],input[type=radio],input[type=file]').uniform();
+	$('input[type=checkbox],input[type=radio]').iCheck({
+    	checkboxClass: 'icheckbox_flat-blue',
+    	radioClass: 'iradio_flat-blue'
+	});
 	
 	$('select').select2();
 	
 	// Form Validation
+    $("#basic_validate").validate({
+		rules:{
+			required:{
+				required:true
+			},
+			email:{
+				required:true,
+				email: true
+			},
+			date:{
+				required:true,
+				date: true
+			},
+			url:{
+				required:true,
+				url: true
+			}
+		},
+		errorClass: "help-inline",
+		errorElement: "span",
+		highlight:function(element, errorClass, validClass) {
+			$(element).parents('.form-group').removeClass('has-success').addClass('has-error');
+		},
+		unhighlight: function(element, errorClass, validClass) {
+			$(element).parents('.form-group').removeClass('has-error').addClass('has-success');
+		}
+	});
 	
 	$("#number_validate").validate({
 		rules:{
@@ -28,45 +60,36 @@ $(document).ready(function(){
 		errorClass: "help-inline",
 		errorElement: "span",
 		highlight:function(element, errorClass, validClass) {
-			$(element).parents('.control-group').addClass('error');
+			$(element).parents('.form-group').addClass('has-error');
 		},
 		unhighlight: function(element, errorClass, validClass) {
-			$(element).parents('.control-group').removeClass('error');
-			$(element).parents('.control-group').addClass('success');
+			$(element).parents('.form-group').removeClass('has-error');
+			$(element).parents('.form-group').addClass('has-success');
 		}
 	});
-
-    $("#NewUser_validate").validate({
-        rules:{
-            password1:{
-                required: true,
-                minlength:6,
-                maxlength:20
-            },
-            password2:{
-                required:true,
-                minlength:6,
-                maxlength:20,
-                equalTo:"#password"
-            },
-            email:{
-                required:true,
-                email: true
-            },
-            username: {
-                required: true,
-                minlength:3,
-                maxlength:20
-            }
-        },
-        errorClass: "help-inline",
-        errorElement: "span",
-        highlight:function(element, errorClass, validClass) {
-            $(element).parents('.control-group').addClass('error');
-        },
-        unhighlight: function(element, errorClass, validClass) {
-            $(element).parents('.control-group').removeClass('error');
-        }
-    });
-
+	
+	$("#password_validate").validate({
+		rules:{
+			pwd:{
+				required: true,
+				minlength:6,
+				maxlength:20
+			},
+			pwd2:{
+				required:true,
+				minlength:6,
+				maxlength:20,
+				equalTo:"#pwd"
+			}
+		},
+		errorClass: "help-inline",
+		errorElement: "span",
+		highlight:function(element, errorClass, validClass) {
+			$(element).parents('.form-group').addClass('has-error');
+		},
+		unhighlight: function(element, errorClass, validClass) {
+			$(element).parents('.form-group').removeClass('has-error');
+			$(element).parents('.form-group').addClass('has-success');
+		}
+	});
 });

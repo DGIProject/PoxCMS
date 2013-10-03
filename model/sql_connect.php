@@ -1,4 +1,6 @@
-<?php session_start();
+<?php
+ini_set('error_reporting', 'E_ALL ^ E_NOTICE');
+session_start();
 
 try
 {

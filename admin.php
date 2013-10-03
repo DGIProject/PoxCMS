@@ -1,5 +1,5 @@
 <?php
-include_once 'model/sql_connection.php';
+include_once 'model/sql_connect.php';
 
 if($_SESSION['username'] != NULL)
 {
