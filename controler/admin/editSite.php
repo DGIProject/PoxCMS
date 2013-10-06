@@ -6,9 +6,13 @@ if($_SESSION['username'] != NULL)
 {
     if($_GET['a'] == 'editSite')
     {
-        editSite($_POST['description'], $_POST['footer'], $_GET['siteId']);
+        $resultEditSite = editSite($_POST['description'], $_POST['footer'], $_GET['siteId']);
+    }
+    elseif($_GET['a'] == 'deleteSite')
+    {
+        deleteSite($_GET['siteId']);
 
-        header('Location: ../../../admin/admin');
+        header('Location: ../../owner');
     }
 
     $siteId = $_GET['siteId'];

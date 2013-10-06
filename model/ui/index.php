@@ -1,5 +1,5 @@
 <?php
-function siteExist()
+function getCountSites()
 {
     global $bdd;
 
@@ -10,6 +10,36 @@ function siteExist()
 
     $countSite = $infoSite['id'];
     return $countSite;
+}
+
+function siteExist($id)
+{
+    global $bdd;
+
+    $req = $bdd->prepare('SELECT id FROM site WHERE id = ?');
+    $req->execute(array($id));
+
+    $infoSite = $req->fetch();
+
+    if($infoSite['id'] != NULL)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+function getListSites()
+{
+    global $bdd;
+
+    $req = $bdd->prepare('SELECT * FROM site');
+    $req->execute();
+
+    $listSites = $req->fetchAll();
+    return $listSites;
 }
 
 function getSiteId()
@@ -61,7 +91,7 @@ function getListMenus($siteId)
 {
     global $bdd;
 
-    $req = $bdd->prepare('SELECT * FROM menu WHERE siteId = ? ORDER BY orderMenu');
+    $req = $bdd->prepare('SELECT * FROM menu WHERE siteId = ? ORDER BY row');
     $req->execute(array($siteId));
 
     $listMenus = $req->fetchAll();

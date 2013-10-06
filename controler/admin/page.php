@@ -4,6 +4,21 @@ include_once 'model/admin/page.php';
 
 if($_SESSION['username'] != NULL)
 {
+    if($_GET['a'] == 'showPreviewPage')
+    {
+        if($_POST['path'] != NULL)
+        {
+            echo getPreviewPage($_POST['path']);
+
+            exit();
+        }
+        else
+        {
+            echo 'Erreur du chargement du fichier.';
+
+            exit();
+        }
+    }
     if($_GET['a'] == 'deletePage')
     {
         deletePage($_GET['pageId']);

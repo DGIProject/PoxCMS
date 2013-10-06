@@ -15,6 +15,7 @@ if($_SESSION['username'] != NULL)
     $numberMessages = getNumberMessages();
 
     $listTemplates = getListTemplates();
+    $templateId = getTemplateIdSite($siteId);
 
     include_once 'view/admin/listTemplate.php';
 }

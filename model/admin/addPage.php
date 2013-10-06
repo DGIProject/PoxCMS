@@ -19,10 +19,10 @@ function addPage($name, $content, $main, $siteId)
             setMainPage($bdd->lastInsertId(), $siteId);
         }
 
-        $orderMenu = getOrderMenu($siteId);
+        $row = getRowMenu($siteId);
 
-        $req = $bdd->prepare('INSERT INTO menu(name, fileName, orderMenu, siteId) VALUES (:name, :fileName, :orderMenu, :siteId)') or die(mysql_error());
-        $req->execute(array('name' => $name, 'fileName' => $fileName, 'orderMenu' => $orderMenu, 'siteId' => $siteId));
+        $req = $bdd->prepare('INSERT INTO menu(name, fileName, row, siteId) VALUES (:name, :fileName, :row, :siteId)') or die(mysql_error());
+        $req->execute(array('name' => $name, 'fileName' => $fileName, 'row' => $row, 'siteId' => $siteId));
 
         return '<div class="alert alert-success">La page a bien été ajoutée.</div>';
     }
@@ -43,7 +43,7 @@ function setMainPage($id, $siteId)
     $req->execute(array($id));
 }
 
-function getOrderMenu($siteId)
+function getRowMenu($siteId)
 {
     global $bdd;
 
@@ -52,6 +52,6 @@ function getOrderMenu($siteId)
 
     $infoMenu = $req->fetch();
 
-    $orderMenu = $infoMenu['id'] + 1;
-    return $orderMenu;
+    $row = $infoMenu['id'] + 1;
+    return $row;
 }

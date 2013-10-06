@@ -10,17 +10,46 @@ function getListTemplates()
     return $listTemplates;
 }
 
-function getTemplateId($template)
+function getTemplateName($templateId)
 {
-    global $bdd;
-
-    $req = $bdd->prepare('SELECT id FROM template WHERE name = ?') or die(mysql_error());
-    $req->execute(array($template));
-
-    $infoTemplate = $req->fetch();
-
-    $templateId = $infoTemplate['id'];
-    return $templateId;
+    switch($templateId)
+    {
+        case 1:
+            return 'Amelia';
+            break;
+        case 2:
+            return 'Cerulean';
+            break;
+        case 3:
+            return 'Cosmos';
+            break;
+        case 4:
+            return 'Cyborg';
+            break;
+        case 5:
+            return 'Flatly';
+            break;
+        case 6:
+            return 'Journal';
+            break;
+        case 7:
+            return 'Readable';
+            break;
+        case 8:
+            return 'Simplex';
+            break;
+        case 9:
+            return 'Slate';
+            break;
+        case 10:
+            return 'Spacelab';
+            break;
+        case 11:
+            return 'United';
+            break;
+        default:
+            return 'Style personnalisé';
+    }
 }
 
 function addSite($name, $description, $footer, $template)
@@ -31,12 +60,15 @@ function addSite($name, $description, $footer, $template)
     }
     else
     {
-        $templateId = getTemplateId($template);
+        if(empty($footer))
+        {
+            $footer = $name;
+        }
 
         global $bdd;
 
         $req = $bdd->prepare('INSERT INTO site(name, description, footer, templateId) VALUES (:name, :description, :footer, :templateId)') or die(mysql_error());
-        $req->execute(array('name' => $name, 'description' => $description, 'footer' => $footer, 'templateId' => $templateId));
+        $req->execute(array('name' => $name, 'description' => $description, 'footer' => $footer, 'templateId' => $template));
 
         return '<div class="alert alert-success">Le site a bien été ajouté.</div>';
     }

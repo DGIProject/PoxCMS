@@ -50,15 +50,15 @@ if (isset($_GET['e'])) {
 <div id="sidebar">
     <a href="#" class="visible-phone"><i class="icon icon-home"></i> Etapes</a>
     <ul>
-        <li><a href="#"><?php if ($etape == $etape_1) { ?><img src="../images/current.png"> <?php } echo $etape_1; ?>
+        <li><a href="#"><?php if ($etape == $etape_1) { ?><img src="../old/images/current.png"> <?php } echo $etape_1; ?>
         </a></li>
-        <li><a href="#"><?php if ($etape == $etape_2) { ?><img src="../images/current.png"> <?php } echo $etape_2; ?>
+        <li><a href="#"><?php if ($etape == $etape_2) { ?><img src="../old/images/current.png"> <?php } echo $etape_2; ?>
         </a></li>
-        <li><a href="#"><?php if ($etape == $etape_3) { ?><img src="../images/current.png"> <?php } echo $etape_3; ?>
+        <li><a href="#"><?php if ($etape == $etape_3) { ?><img src="../old/images/current.png"> <?php } echo $etape_3; ?>
         </a></li>
-        <li><a href="#"><?php if ($etape == $etape_4) { ?><img src="../images/current.png"> <?php } echo $etape_4; ?>
+        <li><a href="#"><?php if ($etape == $etape_4) { ?><img src="../old/images/current.png"> <?php } echo $etape_4; ?>
         </a></li>
-        <li><a href="#"><?php if ($etape == $etape_5) { ?><img src="../images/current.png"> <?php } echo $etape_5; ?>
+        <li><a href="#"><?php if ($etape == $etape_5) { ?><img src="../old/images/current.png"> <?php } echo $etape_5; ?>
         </a></li>
     </ul>
 </div>
@@ -114,13 +114,13 @@ if (isset($_GET['e'])) {
                             </div>
                         </div>
                         <div class="control-group">
-                            <div id="erreur" style="display: none;"><img src="../images/erreur.png" alt="">Impossible de
+                            <div id="erreur" style="display: none;"><img src="../old/images/erreur.png" alt="">Impossible de
                                 se connecter a la base de données. Verrifiez les identifiant que vous avez fournit !
                             </div>
-                            <div id="ok" style="display: none;"><img src="../images/valide.png" name="valid"
+                            <div id="ok" style="display: none;"><img src="../old/images/valide.png" name="valid"
                                                                      alt="ico-valid-bdd"> Connexion établie vous pouvez
                                 continuer <br></div>
-                            <div id="msg3" style="display: none;"><img src="../images/loading4.gif"></div>
+                            <div id="msg3" style="display: none;"><img src="../old/images/loading4.gif"></div>
                         </div>
                         <input type="hidden" name="action" value="testbbd">
 
@@ -152,14 +152,14 @@ if (isset($_GET['e'])) {
                           onsubmit="setdbd(this.action.value);return false" name="bdd_data">
                         <div class="control-group">
                             <div class="control-label">
-                                <div id="erreur1" style="display: none;"><img src="../images/erreur.png" alt="">Impossible
+                                <div id="erreur1" style="display: none;"><img src="../old/images/erreur.png" alt="">Impossible
                                     de se connecter a la base de données. Verrifiez les identifiant que vous avez
                                     fournit !
                                 </div>
-                                <div id="ok1" style="display: none;"><img src="../images/valide.png" name="valid"
+                                <div id="ok1" style="display: none;"><img src="../old/images/valide.png" name="valid"
                                                                           alt="ico-valid-bdd"> Connexion établie vous
                                     pouvez continuer <br></div>
-                                <div id="msg31" style="display: none;"><img src="../images/loading4.gif"></div>
+                                <div id="msg31" style="display: none;"><img src="../old/images/loading4.gif"></div>
                             </div>
                         </div>
                         <div class="form-actions">
@@ -233,7 +233,7 @@ if (isset($_GET['e'])) {
                     ?>
 
                     <center>
-                        <img src="../images/valid_end.png" alt="valide"><br>
+                        <img src="../old/images/valid_end.png" alt="valide"><br>
                         l'instalation est maintenant terminé. il ne vous reste q'une chose a faire:
                         vous devez suprimer le dossier instalation. car sinon lorsque q'un client se connectera sur
                         votre site
@@ -243,7 +243,7 @@ if (isset($_GET['e'])) {
                         <br><br>Nous vous invitons a aller sur l'interface d'administration afin de commencer vos page
                         et bien d'autre.
                         <a href="../admin/">aller a l'interface d'admonistration</a>
-                        <br><img src="../images/atten.png" alt="attention">
+                        <br><img src="../old/images/atten.png" alt="attention">
                         avant de cliquer sur le lien assurez vous de bien avoir suprimer le dossier d'installation.
                         <br> vous ne pourez pas vous connectez dans l'interface d'administration si se dossierr n'est
                         suprimer.<br>

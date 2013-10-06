@@ -31,10 +31,19 @@
 
 <div id="sidebar">
     <ul>
-        <li><a href="owner"><i class="icon icon-home"></i> Acceuil</a></li>
+        <li><a href="owner"><i class="icon icon-home"></i> Dashboard</a></li>
         <?php
         foreach($listSites as $site)
         {
+            if($siteId == $site['id'])
+            {
+                $class = 'active';
+            }
+            else
+            {
+                $class = NULL;
+            }
+
             echo '<li><a href="owner/site/edit/' . $site['id'] . '">' . $site['name'] . '</a></li>
                   <li><a href="owner/' . $site['id'] . '/menu"><i class="icon icon-edit"></i> Menu</a></li>
                   <li class="submenu">
@@ -45,7 +54,7 @@
                     </ul>
                   </li>
                   <li><a href="owner/' . $site['id'] . '/template/list"><i class="icon icon-th-list"></i> Styles</a></li>
-                  <li class="active"><a href="owner/' . $site['id'] . '/user"><i class="icon icon-user"></i> Utilisateurs</a></li>';
+                  <li class="' . $class . '"><a href="owner/' . $site['id'] . '/user"><i class="icon icon-user"></i> Utilisateurs</a></li>';
         }?>
     </ul>
 </div>
@@ -78,19 +87,19 @@
                                     <div class="form-group">
                                         <label class="control-label">Pseudo</label>
                                         <div class="controls">
-                                            <input type="text" name="usernameEdit" disabled="" value="' . $infoUser['username'] . '" class="form-control input-sm">
+                                            <input type="text" name="usernameEdit" disabled="" value="' . $infoUser['username'] . '" class="form-control">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label">Mail</label>
                                         <div class="controls">
-                                            <input type="text" name="emailEdit" value="' . $infoUser['email'] . '" class="form-control input-sm">
+                                            <input type="text" name="emailEdit" value="' . $infoUser['email'] . '" class="form-control">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label">Password</label>
                                         <div class="controls">
-                                            <input type="password" name="passwordEdit" class="form-control input-sm">
+                                            <input type="password" name="passwordEdit" class="form-control">
                                         </div>
                                     </div>
                                     <div class="form-actions">
@@ -143,19 +152,19 @@
                                 <div class="form-group">
                                     <label class="control-label">Pseudo</label>
                                     <div class="controls">
-                                        <input type="text" name="username" class="form-control input-sm" value="<?php echo $_POST['username']; ?>">
+                                        <input type="text" name="username" class="form-control" value="<?php echo $_POST['username']; ?>">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">Mail</label>
                                     <div class="controls">
-                                        <input type="text" name="email" class="form-control input-sm" value="<?php echo $_POST['email']; ?>">
+                                        <input type="text" name="email" class="form-control" value="<?php echo $_POST['email']; ?>">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">Catégorie</label>
                                     <div class="controls">
-                                        <select name="category">
+                                        <select name="category" class="form-control">
                                             <option>User</option>
                                             <option>Admin</option>
                                         </select>
@@ -164,13 +173,13 @@
                                 <div class="form-group">
                                     <label class="control-label">Mot de passe</label>
                                     <div class="controls">
-                                        <input type="password" name="password1" class="form-control input-sm">
+                                        <input type="password" name="password1" class="form-control">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">Confirmation du mot de passe</label>
                                     <div class="controls">
-                                        <input type="password" name="password2" class="form-control input-sm">
+                                        <input type="password" name="password2" class="form-control">
                                     </div>
                                 </div>
                                 <div class="form-actions">

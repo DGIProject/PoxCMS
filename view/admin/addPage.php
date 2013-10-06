@@ -29,16 +29,25 @@
 
 <div id="sidebar">
     <ul>
-        <li><a href="owner"><i class="icon icon-home"></i> Acceuil</a></li>
+        <li><a href="owner"><i class="icon icon-home"></i> Dashboard</a></li>
         <?php
         foreach($listSites as $site)
         {
+            if($siteId == $site['id'])
+            {
+                $class = 'active';
+            }
+            else
+            {
+                $class = NULL;
+            }
+
             echo '<li><a href="owner/site/edit/' . $site['id'] . '">' . $site['name'] . '</a></li>
                   <li><a href="owner/' . $site['id'] . '/menu"><i class="icon icon-edit"></i> Menu</a></li>
-                  <li class="submenu active">
+                  <li class="submenu ' . $class . '">
                     <a href="#"><i class="icon icon-file"></i> Page <i class="arrow icon-chevron-right"></i></a>
                     <ul>
-                        <li class="active"><a href="owner/' . $site['id'] . '/page/new"><i class="icon icon-plus"></i> Ajouter une page</a></li>
+                        <li class="' . $class . '"><a href="owner/' . $site['id'] . '/page/new"><i class="icon icon-plus"></i> Ajouter une page</a></li>
                         <li><a href="owner/' . $site['id'] . '/page"><i class="icon icon-eye-open"></i> Voir toutes les pages</a></li>
                     </ul>
                   </li>
@@ -57,8 +66,8 @@
         <a href="owner/<?php echo $siteId; ?>/page/new" class="current">Ajouter une page</a>
     </div>
     <div class="container-fluid">
-        <div class="row-fluid">
-            <div class="span12">
+        <div class="row">
+            <div class="col-xs-12">
                 <?php
                 if($resultAddPage != NULL)
                 {
@@ -72,17 +81,17 @@
                         <h5>Ajouter une page</h5>
                     </div>
                     <div class="widget-content nopadding">
-                        <form method="post" action="admin/<?php echo $siteId; ?>/page/add" class="form-horizontal">
-                            <div class="control-group">
+                        <form method="post" action="owner/<?php echo $siteId; ?>/page/add" class="form-horizontal">
+                            <div class="form-group">
                                 <label class="control-label">Nom</label>
                                 <div class="controls">
-                                    <input type="text" name="name" id="name">
+                                    <input type="text" name="name" id="name" class="form-control">
                                 </div>
                             </div>
-                            <div class="control-group">
+                            <div class="form-group">
                                 <label class="control-label">Principale</label>
                                 <div class="controls">
-                                    <select name="main" id="main">
+                                    <select name="main" id="main" class="form-control">
                                         <option>Oui</option>
                                         <option>Non</option>
                                     </select>
@@ -122,7 +131,7 @@
 <script src="view/admin/js/jquery.nicescroll.min.js"></script>
 <script src="view/admin/js/unicorn.js"></script>
 <script src="view/admin/js/unicorn.dashboard.js"></script>
-<script src="view/admin/js/ajax.js"></script>
+<script src="view/admin/js/admin.js"></script>
 <script src="ckeditor/ckeditor.js"></script>
 <script type="text/javascript">
     CKEDITOR.replace('ckeditor');

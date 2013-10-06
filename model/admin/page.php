@@ -10,6 +10,14 @@ function getListPages($siteId)
     return $listPages;
 }
 
+function getPreviewPage($path)
+{
+    $file = file_get_contents($path);
+
+    $previewPage = stripslashes($file);
+    return $previewPage;
+}
+
 function setMainPage($id, $siteId)
 {
     global $bdd;

@@ -29,13 +29,22 @@
 
 <div id="sidebar">
     <ul>
-        <li><a href="owner"><i class="icon icon-home"></i> Acceuil</a></li>
+        <li><a href="owner"><i class="icon icon-home"></i> Dashboard</a></li>
         <?php
         foreach($listSites as $site)
         {
+            if($siteId == $site['id'])
+            {
+                $class = 'active';
+            }
+            else
+            {
+                $class = NULL;
+            }
+
             echo '<li><a href="owner/site/edit/' . $site['id'] . '">' . $site['name'] . '</a></li>
                   <li><a href="owner/' . $site['id'] . '/menu"><i class="icon icon-edit"></i> Menu</a></li>
-                  <li class="submenu active">
+                  <li class="submenu ' . $class . '">
                     <a href="#"><i class="icon icon-file"></i> Page <i class="arrow icon-chevron-right"></i></a>
                     <ul>
                         <li><a href="owner/' . $site['id'] . '/page/new"><i class="icon icon-plus"></i> Ajouter une page</a></li>
@@ -57,8 +66,8 @@
         <a href="owner/<?php echo $siteId; ?>/page/edit/<?php echo $page['id']; ?>" class="current">Editer une page</a>
     </div>
     <div class="container-fluid">
-        <div class="row-fluid">
-            <div class="span12">
+        <div class="row">
+            <div class="col-xs-12">
                 <?php
                 if($resultEditPage != NULL)
                 {
@@ -76,13 +85,13 @@
                             <div class="form-group">
                                 <label class="control-label">Nom</label>
                                 <div class="controls">
-                                    <input type="text" name="name" id="name" disabled="" value="<?php echo $page['name']; ?>" class="form-control input-sm">
+                                    <input type="text" name="name" id="name" disabled="" value="<?php echo $page['name']; ?>" class="form-control">
                                 </div>
                             </div>
-                            <div class="control-group">
+                            <div class="form-group">
                                 <label class="control-label">Principale</label>
                                 <div class="controls">
-                                    <select name="main" id="main">
+                                    <select name="main" id="main" class="form-control">
                                         <?php
                                         if($page['main'] == 1)
                                         {
@@ -98,10 +107,10 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="control-group">
+                            <div class="form-group">
                                 <label class="control-label">Contenu</label>
                                 <div class="controls">
-                                    <textarea name="content" id="ckeditor"><?php echo $page['content']; ?></textarea>
+                                    <textarea name="content" id="ckeditor" class="form-control"><?php echo $page['content']; ?></textarea>
                                 </div>
                             </div>
                             <input type="hidden" name="fileName" value="<?php echo $page['fileName']; ?>">
@@ -133,7 +142,7 @@
 <script src="view/admin/js/jquery.nicescroll.min.js"></script>
 <script src="view/admin/js/unicorn.js"></script>
 <script src="view/admin/js/unicorn.dashboard.js"></script>
-<script src="view/admin/js/ajax.js"></script>
+<script src="view/admin/js/admin.js"></script>
 <script src="ckeditor/ckeditor.js"></script>
 <script type="text/javascript">
     CKEDITOR.replace('ckeditor');

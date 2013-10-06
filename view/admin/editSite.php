@@ -33,7 +33,16 @@
         <?php
         foreach($listSites as $site)
         {
-            echo '<li class="active"><a href="owner/site/edit/' . $site['id'] . '">' . $site['name'] . '</a></li>
+            if($siteId == $site['id'])
+            {
+                $class = 'active';
+            }
+            else
+            {
+                $class = NULL;
+            }
+
+            echo '<li class="' . $class . '"><a href="owner/site/edit/' . $site['id'] . '">' . $site['name'] . '</a></li>
                   <li><a href="owner/' . $site['id'] . '/menu"><i class="icon icon-edit"></i> Menu</a></li>
                   <li class="submenu">
                     <a href="#"><i class="icon icon-file"></i> Page <i class="arrow icon-chevron-right"></i></a>
@@ -57,8 +66,13 @@
         <a href="owner/site/edit/<?php echo $siteId; ?>" class="current">Editer le site</a>
     </div>
     <div class="container-fluid">
-        <div class="row-fluid">
-            <div class="span12">
+        <div class="row">
+            <div class="col-xs-12">
+                <?php
+                if($resultEditSite != NULL)
+                {
+                    echo $resultEditSite;
+                }?>
                 <div class="widget-box">
                     <div class="widget-title">
                         <span class="icon">
@@ -67,23 +81,23 @@
                         <h5>Editer le site</h5>
                     </div>
                     <div class="widget-content nopadding">
-                        <form method="post" action="admin/site/saveedit/<?php echo $siteId; ?>" class="form-horizontal">
-                            <div class="control-group">
+                        <form method="post" action="owner/site/saveedit/<?php echo $siteId; ?>" class="form-horizontal">
+                            <div class="form-group">
                                 <label class="control-label">Nom</label>
                                 <div class="controls">
-                                    <input type="text" name="name" id="name" disabled="" value="<?php echo $site['name']; ?>">
+                                    <input type="text" name="name" class="form-control" disabled="" value="<?php echo $site['name']; ?>">
                                 </div>
                             </div>
-                            <div class="control-group">
+                            <div class="form-group">
                                 <label class="control-label">Description</label>
                                 <div class="controls">
-                                    <textarea name="description" id="ckeditor"><?php echo $site['description']; ?></textarea>
+                                    <textarea name="description" class="form-control"><?php echo $site['description']; ?></textarea>
                                 </div>
                             </div>
-                            <div class="control-group">
+                            <div class="form-group">
                                 <label class="control-label">Bas de page</label>
                                 <div class="controls">
-                                    <input type="text" name="footer" id="footer" value="<?php echo $site['footer']; ?>">
+                                    <input type="text" name="footer" class="form-control" value="<?php echo $site['footer']; ?>">
                                 </div>
                             </div>
                             <div class="form-actions">
@@ -114,10 +128,5 @@
 <script src="view/admin/js/jquery.nicescroll.min.js"></script>
 <script src="view/admin/js/unicorn.js"></script>
 <script src="view/admin/js/unicorn.dashboard.js"></script>
-<script src="view/admin/js/ajax.js"></script>
-<script src="ckeditor/ckeditor.js"></script>
-<script type="text/javascript">
-    CKEDITOR.replace('ckeditor');
-</script>
 </body>
 </html>

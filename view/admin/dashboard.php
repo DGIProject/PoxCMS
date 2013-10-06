@@ -29,7 +29,7 @@
 
 <div id="sidebar">
     <ul>
-        <li class="active"><a href="owner"><i class="icon icon-home"></i> Acceuil</a></li>
+        <li class="active"><a href="owner"><i class="icon icon-home"></i> Dashboard</a></li>
         <?php
         foreach($listSites as $site)
         {
@@ -53,9 +53,48 @@
         <h1>Dashboard</h1>
     </div>
     <div class="container-fluid">
-        <div class="row-fluid">
-            <div class="span12">
+        <div class="row">
+            <div class="col-xs-12">
                 <p>Bienvenue sur PoxCMS, vous pourrez créer de nombreux sites facilement.</p>
+                <?php
+                if($listSites != NULL)
+                {
+                    echo '<div class="widget-box">
+							<div class="widget-title">
+								<span class="icon">
+									<i class="icon-th"></i>
+								</span>
+								<h5>Liste des sites</h5>
+							</div>
+							<div class="widget-content nopadding">
+								<table class="table table-bordered table-striped table-hover">
+									<thead>
+										<tr>
+											<th>Nom</th>
+											<th>Descriptions</th>
+											<th>Bas de page</th>
+											<th>Style</th>
+											<th>Date</th>
+											<th>Options</th>
+										</tr>
+									</thead>
+									<tbody>';
+
+                    foreach($listSites as $site)
+                    {
+                        echo '<tr><td>' . $site['name'] . '</td><td>' . $site['description'] . '</td><td>' . $site['footer'] . '</td><td>' . getTemplateName($site['templateId']) . '</td><td>' . $site['date'] . '</td><td><a href="owner/site/edit/' . $site['id'] . '" class="btn btn-info"><i class="icon icon-edit"></i></a> <a href="#confirmDelete" data-toggle="modal" onclick="confirmDelete(\'owner/site/delete/' . $site['id'] . '\');" class="btn btn-danger"><i class="icon icon-remove"></i></a></td></tr>';
+                    }
+
+					echo '			</tbody>
+								</table>
+							</div>
+						  </div>';
+                }
+                else
+                {
+                    echo '<div class="alert alert-info">Aucun site.</div>';
+                }?>
+
                 <?php
                 if($resultAddSite != NULL)
                 {
@@ -69,41 +108,56 @@
                         <h5>Ajouter un site</h5>
                     </div>
                     <div class="widget-content nopadding">
-                        <form method="post" action="admin/site/add" class="form-horizontal">
-                            <div class="control-group">
+                        <form method="post" action="owner/site/add" class="form-horizontal" role="form">
+                            <div class="form-group">
                                 <label class="control-label">Nom</label>
                                 <div class="controls">
-                                    <input type="text" name="name">
+                                    <input type="text" class="form-control" name="name">
                                 </div>
                             </div>
-                            <div class="control-group">
+                            <div class="form-group">
                                 <label class="control-label">Description</label>
                                 <div class="controls">
-                                    <textarea name="description"></textarea>
+                                    <textarea name="description" class="form-control"></textarea>
                                 </div>
                             </div>
-                            <div class="control-group">
-                                <label class="control-label">Bas de page</label>
-                                <div class="controls">
-                                    <input type="text" name="footer">
-                                </div>
-                            </div>
-                            <div class="control-group">
+                            <div class="form-group">
                                 <label class="control-label">Style</label>
                                 <div class="controls">
-                                    <select name="template" class="span2">
+                                    <select name="template" class="form-control">
                                         <?php
                                         foreach($listTemplates as $template)
                                         {
-                                            echo '<option>' . $template['name'] . '</option>';
+                                            echo '<option value="' . $template['id'] . '">' . $template['name'] . '</option>';
                                         }?>
                                     </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Bas de page</label>
+                                <div class="controls">
+                                    <input type="text" class="form-control" name="footer">
                                 </div>
                             </div>
                             <div class="form-actions">
                                 <button type="submit" class="btn btn-primary">Ajouter</button>
                             </div>
                         </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="confirmDelete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Confirmation de suppression</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div id="returnDelete">
+                            <center>Nothing ...</center>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -128,6 +182,6 @@
 <script src="view/admin/js/jquery.nicescroll.min.js"></script>
 <script src="view/admin/js/unicorn.js"></script>
 <script src="view/admin/js/unicorn.dashboard.js"></script>
-<script src="view/admin/js/ajax.js"></script>
+<script src="view/admin/js/admin.js"></script>
 </body>
 </html>

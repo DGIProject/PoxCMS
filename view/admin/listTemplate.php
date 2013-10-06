@@ -29,10 +29,19 @@
 
 <div id="sidebar">
     <ul>
-        <li><a href="owner"><i class="icon icon-home"></i> Acceuil</a></li>
+        <li><a href="owner"><i class="icon icon-home"></i> Dashboard</a></li>
         <?php
         foreach($listSites as $site)
         {
+            if($siteId == $site['id'])
+            {
+                $class = 'active';
+            }
+            else
+            {
+                $class = NULL;
+            }
+
             echo '<li><a href="owner/site/edit/' . $site['id'] . '">' . $site['name'] . '</a></li>
                   <li><a href="owner/' . $site['id'] . '/menu"><i class="icon icon-edit"></i> Menu</a></li>
                   <li class="submenu">
@@ -42,7 +51,7 @@
                         <li><a href="owner/' . $site['id'] . '/page"><i class="icon icon-eye-open"></i> Voir toutes les pages</a></li>
                     </ul>
                   </li>
-                  <li class="active"><a href="owner/' . $site['id'] . '/template/list"><i class="icon icon-th-list"></i> Styles</a></li>
+                  <li class="' . $class . '"><a href="owner/' . $site['id'] . '/template/list"><i class="icon icon-th-list"></i> Styles</a></li>
                   <li><a href="owner/' . $site['id'] . '/user"><i class="icon icon-user"></i> Utilisateurs</a></li>';
         }?>
     </ul>
@@ -57,54 +66,41 @@
         <a href="owner/<?php echo $siteId; ?>/template/list" class="current">Styles</a>
     </div>
     <div class="container-fluid">
-        <div class="row-fluid">
-            <div class="span12">
-                <ul class="thumbnails">
+        <div class="row">
                     <?php
                     foreach ($listTemplates as $template)
                     {
+                        $classDisabled = ($template['id'] == $templateId) ? 'disabled' : '';
+
                         if($template['id'] == 13)
                         {
-                            echo '<li class="span3">
+                            echo '<div class="col-md-3">
                                     <div class="thumbnail">
-                                        <img src="template/pages/img/' . $template['picture'] . '">
+                                        <img src="view/ui/template/img/' . $template['picture'] . '">
 
                                         <h3>' . $template['name'] . '</h3>
 
                                         <p>' . $template['description'] . '</p>
 
-                                        <p><a href="admin/' . $siteId . '/template/customise" class="btn btn-primary">Ajouter les fichiers</a> <a href="admin/' . $siteId . '/template/set/' . $template['id'] . '" class="btn">Choose</a></p>
+                                        <p><a href="owner/' . $siteId . '/template/set/' . $template['id'] . '" class="btn btn-primary ' . $classDisabled . '">Choisir</a> <a href="admin/' . $siteId . '/template/customise" class="btn btn-primary">Modifier</a></p>
                                     </div>
-                                  </li>';
+                                  </div>';
                         }
                         else
                         {
-                            echo '<li class="span3">
+                            echo '<div class="col-md-3">
                                     <div class="thumbnail">
-                                        <img src="template/pages/img/' . $template['picture'] . '">
+                                        <img src="view/ui/template/img/' . $template['picture'] . '">
 
                                         <h3>' . $template['name'] . '</h3>
 
                                         <p>' . $template['description'] . '</p>
 
-                                        <p><a href="#preview" onclick="preview(\'template/' . $template['preview'] . '\', \'temp\')" data-toggle="modal" class="btn btn-primary">Preview</a> <a href="admin/' . $siteId . '/template/set/' . $template['id'] . '" class="btn">Choose</a></p>
+                                        <p><a href="owner/' . $siteId . '/template/set/' . $template['id'] . '" class="btn btn-primary ' . $classDisabled . '">Choisir</a></p>
                                     </div>
-                                  </li>';
+                                  </div>';
                         }
                     }?>
-                </ul>
-                <div id="preview" class="modal hide">
-                    <div class="modal-header">
-                        <button data-dismiss="modal" class="close" type="button">×</button>
-                        <h3>Modal header</h3>
-                    </div>
-                    <div class="modal-body">
-                        <div id="returne">
-                            <center><img src="images/loading4.gif"></center>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </div>

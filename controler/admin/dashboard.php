@@ -10,7 +10,7 @@ if($_SESSION['username'] != NULL)
 
         setcookie('currentUser', '', time() - 365 * 24 * 3600, null, null, false, true);
 
-        header('Location: ../../PoxCMS');
+        header('Location: ../');
     }
     elseif($_GET['a'] == 'addSite')
     {

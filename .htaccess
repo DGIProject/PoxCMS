@@ -5,8 +5,11 @@ RewriteRule ^owner$ admin.php
 RewriteRule ^owner/site/add$ admin.php?a=addSite
 RewriteRule ^owner/site/edit/([0-9]+)$ admin.php?type=editsite&siteId=$1
 RewriteRule ^owner/site/saveedit/([0-9]+)$ admin.php?type=editsite&a=editSite&siteId=$1
+RewriteRule ^owner/site/delete/([0-9]+)$ admin.php?type=editsite&a=deleteSite&siteId=$1
 
 RewriteRule ^owner/([0-9]+)/menu$ admin.php?type=menu&siteId=$1
+RewriteRule ^owner/([0-9]+)/menu/add$ admin.php?type=menu&siteId=$1&a=addElementMenu
+RewriteRule ^owner/([0-9]+)/menu/delete/([0-9]+)$ admin.php?type=menu&siteId=$1&a=deleteMenu&menuId=$2
 
 RewriteRule ^owner/([0-9]+)/page$ admin.php?type=page&siteId=$1
 RewriteRule ^owner/([0-9]+)/page/new$ admin.php?type=addpage&siteId=$1

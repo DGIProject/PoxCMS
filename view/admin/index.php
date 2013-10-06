@@ -14,15 +14,6 @@
     <div id="logo">
         <img src="view/admin/img/logo.png" alt=""/>
     </div>
-    <div id="user">
-        <div class="avatar">
-            <div class="inner"></div>
-            <img src="view/admin/img/demo/av1_1.jpg" />
-        </div>
-        <div class="text">
-            <h4>Hello,<span class="user_name"></span></h4>
-        </div>
-    </div>
     <div id="loginbox">
         <form id="loginform" method="post" action="owner/login">
             <p>Entrez vots identifiants pour accèder au panel d'administration</p>

@@ -1,50 +1,59 @@
 <?php
 include_once 'model/ui/index.php';
 
-$countSite = siteExist();
-
-if($countSite > 0)
+if($_GET['siteId'] != NULL && siteExist($_GET['siteId']) == true)
 {
-    if($countSite == 1)
+    $templateId = getTemplateIdSite($_GET['siteId']);
+
+    $templateFiles = getFiles($templateId);
+
+    $site = getInfoSite($_GET['siteId']);
+
+    if($_GET['pageId'] != NULL)
     {
-        if($_GET['siteId'] != NULL)
-        {
-            $templateId = getTemplateIdSite($_GET['siteId']);
+        $page = getInfoPage($_GET['pageId']);
+    }
+    else
+    {
+        $page = getMainPage($_GET['siteId']);
+    }
 
-            $templateFiles = getFiles($templateId);
+    $listMenus = getListMenus($_GET['siteId']);
 
-            $site = getInfoSite($_GET['siteId']);
+    $siteId = $_GET['siteId'];
 
-            if($_GET['pageId'] != NULL)
-            {
-                $page = getInfoPage($_GET['pageId']);
-            }
-            else
-            {
-                $page = getMainPage($_GET['siteId']);
-            }
+    include_once 'view/ui/index.php';
+}
+else
+{
+    $countSites = getCountSites();
 
-            $listMenus = getListMenus($_GET['siteId']);
-
-            $siteId = $_GET['siteId'];
-
-            include_once 'view/ui/index.php';
-        }
-        else
+    if($countSites > 0)
+    {
+        if($countSites == 1)
         {
             $siteId = getSiteId();
 
             header('Location: ' . $siteId);
         }
+        else
+        {
+            $listSites = getListSites();
+
+            echo 'Choisissez le site :<ul>';
+
+            foreach($listSites as $site)
+            {
+                echo '<li><a href="' . $site['id'] . '">' . $site['name'] . '</a></li>';
+            }
+
+            echo '</ul>';
+        }
     }
     else
     {
-
+        echo 'Aucun site.';
     }
-}
-else
-{
-
 }
 
 /*

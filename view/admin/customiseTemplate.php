@@ -29,10 +29,19 @@
 
 <div id="sidebar">
     <ul>
-        <li><a href="owner"><i class="icon icon-home"></i> Acceuil</a></li>
+        <li><a href="owner"><i class="icon icon-home"></i> Dashboard</a></li>
         <?php
         foreach($listSites as $site)
         {
+            if($siteId == $site['id'])
+            {
+                $class = 'active';
+            }
+            else
+            {
+                $class = NULL;
+            }
+
             echo '<li><a href="owner/site/edit/' . $site['id'] . '">' . $site['name'] . '</a></li>
                   <li><a href="owner/' . $site['id'] . '/menu"><i class="icon icon-edit"></i> Menu</a></li>
                   <li class="submenu">
@@ -42,7 +51,7 @@
                         <li><a href="owner/' . $site['id'] . '/page"><i class="icon icon-eye-open"></i> Voir toutes les pages</a></li>
                     </ul>
                   </li>
-                  <li class="active"><a href="owner/' . $site['id'] . '/template/list"><i class="icon icon-th-list"></i> Styles</a></li>
+                  <li class="' . $class . '"><a href="owner/' . $site['id'] . '/template/list"><i class="icon icon-th-list"></i> Styles</a></li>
                   <li><a href="owner/' . $site['id'] . '/user"><i class="icon icon-user"></i> Utilisateurs</a></li>';
         }?>
     </ul>
@@ -57,8 +66,8 @@
         <a href="owner/<?php echo $siteId; ?>/template/customise" class="current">Style personnalisé</a>
     </div>
     <div class="container-fluid">
-        <div class="row-fluid">
-            <div class="span12">
+        <div class="row">
+            <div class="col-xs-12">
                 <h1>Ajouter les fichiers du style</h1>
                 <div id="elfinder"></div>
             </div>
@@ -83,7 +92,7 @@
 <script src="view/admin/js/jquery.nicescroll.min.js"></script>
 <script src="view/admin/js/unicorn.js"></script>
 <script src="view/admin/js/unicorn.dashboard.js"></script>
-<script src="view/admin/js/ajax.js"></script>
+<script src="view/admin/js/admin.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js"></script>
 <script type="text/javascript" src="elfinder/js/elfinder.min.js"></script>
 <script type="text/javascript" charset="utf-8">

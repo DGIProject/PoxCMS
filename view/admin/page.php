@@ -29,17 +29,26 @@
 
 <div id="sidebar">
     <ul>
-        <li><a href="owner"><i class="icon icon-home"></i> Acceuil</a></li>
+        <li><a href="owner"><i class="icon icon-home"></i> Dashboard</a></li>
         <?php
         foreach($listSites as $site)
         {
+            if($siteId == $site['id'])
+            {
+                $class = 'active';
+            }
+            else
+            {
+                $class = NULL;
+            }
+
             echo '<li><a href="owner/site/edit/' . $site['id'] . '">' . $site['name'] . '</a></li>
                   <li><a href="owner/' . $site['id'] . '/menu"><i class="icon icon-edit"></i> Menu</a></li>
-                  <li class="submenu active">
+                  <li class="submenu ' . $class . '">
                     <a href="#"><i class="icon icon-file"></i> Page <i class="arrow icon-chevron-right"></i></a>
                     <ul>
                         <li><a href="owner/' . $site['id'] . '/page/new"><i class="icon icon-plus"></i> Ajouter une page</a></li>
-                        <li class="active"><a href="owner/' . $site['id'] . '/page"><i class="icon icon-eye-open"></i> Voir toutes les pages</a></li>
+                        <li class="' . $class . '"><a href="owner/' . $site['id'] . '/page"><i class="icon icon-eye-open"></i> Voir toutes les pages</a></li>
                     </ul>
                   </li>
                   <li><a href="owner/' . $site['id'] . '/template/list"><i class="icon icon-th-list"></i> Styles</a></li>
@@ -89,28 +98,43 @@
                                     echo '<td><span class="label label-inverse">Non</span></td>';
                                 }
 
-                                echo '<td>' . $page['date'] . '</td><td><a href="#preview" onclick="preview(\'pages/' . $page['fileName'] . '\');" data-toggle="modal" class="btn"><i class="icon-eye-open"></i></a> <a href="owner/' . $siteId . '/page/edit/' . $page['id'] . '" class="btn btn-info"><i class="icon-pencil"></i></a> <a href="owner/' . $siteId . '/page/delete/' . $page['id'] . '" class="btn btn-danger"><i class="icon-remove"></i></a></td></tr>';
+                                echo '<td>' . $page['date'] . '</td><td><a href="#previewPage" data-toggle="modal" onclick="previewPage(\'view/ui/pages/' . $page['fileName'] . '\');" class="btn btn-default"><i class="icon-eye-open"></i></a> <a href="owner/' . $siteId . '/page/edit/' . $page['id'] . '" class="btn btn-info"><i class="icon-pencil"></i></a> <a href="#confirmDelete" data-toggle="modal" onclick="confirmDelete(\'owner/' . $siteId . '/page/delete/' . $page['id'] . '\');" class="btn btn-danger"><i class="icon-remove"></i></a></td></tr>';
                             }?>
                             </tbody>
                         </table>
-                        <div class="modal fade" id="preview" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                        <h4 class="modal-title">Aperçu de la page</h4>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div id="return">
-                                            <center><img src="view/admin/img/spinner.gif" alt="spinner"></center>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                                    </div>
-                                </div><!-- /.modal-content -->
-                            </div><!-- /.modal-dialog -->
-                        </div><!-- /.modal -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="previewPage" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Aperçu de la page</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div id="returnPreview">
+                            <center><img src="view/admin/img/spinner.gif" alt="spinner"></center>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="confirmDelete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Confirmation de suppression</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div id="returnDelete">
+                            <center>Nothing ...</center>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -135,6 +159,6 @@
 <script src="view/admin/js/jquery.nicescroll.min.js"></script>
 <script src="view/admin/js/unicorn.js"></script>
 <script src="view/admin/js/unicorn.dashboard.js"></script>
-<script src="view/admin/js/ajax.js"></script>
+<script src="view/admin/js/admin.js"></script>
 </body>
 </html>
